@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(MaterialApp(
-    title: 'Manage Menu',
+//    title: 'Manage Menu',
     home: ManageScreen(),
   ));
 }
@@ -15,208 +15,191 @@ class ManageScreen extends StatelessWidget {
       backgroundColor: new Color(0xFF74012c),
       appBar: AppBar(
         backgroundColor: new Color(0xFF74012c),
-        title: Text('Manage Menu'),
+        title: Center(
+          child: Text('Manage Menu'),
+        ),
       ),
-      drawer: Drawer(),
+//      drawer: Drawer(),
       floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          print('Clicked');
+        },
         backgroundColor: Colors.white,
-        child: Icon(Icons.add,color: new Color(0xFF74012c)),
+        child: Icon(Icons.add, color: new Color(0xFF74012c)),
       ),
-      body: ListView(
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
-          Container(
-            height: 110,
-            child: Card(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Center(
-                child: ExpansionTile(
-                  leading: ClipRRect(
-                    borderRadius: BorderRadius.circular(15.0),
-                child: Container(
-                  width: 100,
-                  height: 200,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                        image: NetworkImage('https://images.edexlive.com/uploads/user/imagelibrary/2020/3/17/original/icecream.jpg'),
-                        fit: BoxFit.fill
-                    ),
-                  ),
+          Card(
+            color: new Color(0x93013b),
+            margin: EdgeInsets.symmetric(vertical: 10, horizontal: 25),
+            child: ExpansionTile(
+              leading: Image.network(
+                  'https://www.bbcgoodfood.com/sites/default/files/baked-camembert-with-bacon-wrapped-breadsticks_0.jpg'),
+              title: Text(
+                'Starters',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 30,
                 ),
               ),
-                  title: Text("Name of the food Item"),
+              subtitle: Text(
+                'Number of Items: 3',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 15,
+                ),
+              ),
+              children: <Widget>[
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: <Widget>[
-                    SizedBox(
-                      height: 20,
+                    Icon(
+                      Icons.edit,
+                      color: Colors.white,
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: <Widget>[
-                        Icon(
-                            Icons.edit
-                        ),
-                        Icon(
-                            Icons.delete
-                        ),
-                        Icon(
-                            Icons.clear
-                        ),
-                      ],
-                    )
-
+                    Icon(
+                      Icons.delete,
+                      color: Colors.white,
+                    ),
+                    Icon(
+                      Icons.clear,
+                      color: Colors.white,
+                    ),
                   ],
-                ),
-              ),
+                )
+              ],
             ),
           ),
-          Container(
-            height: 110,
-            child: Card(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Center(
-                child: ExpansionTile(
-                  leading: ClipRRect(
-                    borderRadius: BorderRadius.circular(15.0),
-                child: Container(
-                  alignment: Alignment.center,
-                  width: 100,
-                  height: 200,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                        image: NetworkImage('https://tribune-reloaded.s3.amazonaws.com/media/images/1590373-biryani-1513939158/1590373-biryani-1513939158.gif'),
-                        fit: BoxFit.fill
-                    ),
-                  ),
+          Card(
+            color: new Color(0x93013b),
+            margin: EdgeInsets.symmetric(vertical: 10, horizontal: 25),
+            child: ExpansionTile(
+              leading: Image.network(
+                  'https://www.bbcgoodfood.com/sites/default/files/baked-camembert-with-bacon-wrapped-breadsticks_0.jpg'),
+              title: Text(
+                'Starters',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 30,
                 ),
               ),
-                  title: Text("Name of the food Item"),
+              subtitle: Text(
+                'Number of Items: 3',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 15,
+                ),
+              ),
+              children: <Widget>[
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: <Widget>[
-                    SizedBox(
-                      height: 20,
+                    Icon(
+                      Icons.edit,
+                      color: Colors.white,
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: <Widget>[
-                        Icon(
-                            Icons.edit
-                        ),
-                        Icon(
-                            Icons.delete
-                        ),
-                        Icon(
-                            Icons.clear
-                        ),
-                      ],
-                    )
-
+                    Icon(
+                      Icons.delete,
+                      color: Colors.white,
+                    ),
+                    Icon(
+                      Icons.clear,
+                      color: Colors.white,
+                    ),
                   ],
-                ),
-              ),
+                )
+              ],
             ),
           ),
-          Container(
-            height: 110,
-            child: Card(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10),
+          Card(
+            color: new Color(0x93013b),
+            margin: EdgeInsets.symmetric(vertical: 10, horizontal: 25),
+            child: ExpansionTile(
+              leading: Image.network(
+                  'https://www.bbcgoodfood.com/sites/default/files/baked-camembert-with-bacon-wrapped-breadsticks_0.jpg'),
+              title: Text(
+                'Starters',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 30,
+                ),
               ),
-              child: Center(
-                child: ExpansionTile(
-                  leading: ClipRRect(
-                    borderRadius: BorderRadius.circular(15.0),
-                    child: Container(
-                      alignment: Alignment.center,
-                      width: 100,
-                      height: 200,
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: NetworkImage('https://www3.pictures.zimbio.com/mp/wwj1hrnad01x.jpg'),
-                            fit: BoxFit.fill
-                        ),
-                      ),
-                    ),
-                  ),
-                  title: Text("Name of the food Item"),
+              subtitle: Text(
+                'Number of Items: 3',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 15,
+                ),
+              ),
+              children: <Widget>[
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: <Widget>[
-                    SizedBox(
-                      height: 20,
+                    Icon(
+                      Icons.edit,
+                      color: Colors.white,
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: <Widget>[
-                        Icon(
-                            Icons.edit
-                        ),
-                        Icon(
-                            Icons.delete
-                        ),
-                        Icon(
-                            Icons.clear
-                        ),
-                      ],
-                    )
-
+                    Icon(
+                      Icons.delete,
+                      color: Colors.white,
+                    ),
+                    Icon(
+                      Icons.clear,
+                      color: Colors.white,
+                    ),
                   ],
-                ),
-              ),
-            ),
-          ),
-          Container(
-            height: 110,
-            child: Card(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Center(
-                child: ExpansionTile(
-                  leading: ClipRRect(
-                    borderRadius: BorderRadius.circular(15.0),
-                child: Container(
-                  alignment: Alignment.center,
-                  width: 100,
-                  height: 200,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                        image: NetworkImage('https://tribune-reloaded.s3.amazonaws.com/media/images/1590373-biryani-1513939158/1590373-biryani-1513939158.gif'),
-                        fit: BoxFit.fill
-                    ),
-                  ),
-                ),
-              ),
-                  title: Text("Name of the food Item"),
-                  children: <Widget>[
-                    SizedBox(
-                      height: 20,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: <Widget>[
-                        Icon(
-                            Icons.edit
-                        ),
-                        Icon(
-                            Icons.delete
-                        ),
-                        Icon(
-                            Icons.clear
-                        ),
-                      ],
-                    )
-
-                  ],
-                ),
-              ),
+                )
+              ],
             ),
           ),
         ],
-      )
+      ),
 
+//      body: ListView(
+//        children: <Widget>[
+//          Container(
+//            height: 110,
+//            child: Card(
+//              shape: RoundedRectangleBorder(
+//                borderRadius: BorderRadius.circular(10),
+//              ),
+//              child: Center(
+//                child: ExpansionTile(
+//                  leading: ClipRRect(
+//                    borderRadius: BorderRadius.circular(15.0),
+//                    child: Container(
+//                      alignment: Alignment.center,
+//                      width: 100,
+//                      height: 200,
+//                      decoration: BoxDecoration(
+//                        image: DecorationImage(
+//                            image: NetworkImage(
+//                                'https://tribune-reloaded.s3.amazonaws.com/media/images/1590373-biryani-1513939158/1590373-biryani-1513939158.gif'),
+//                            fit: BoxFit.fill),
+//                      ),
+//                    ),
+//                  ),
+//                  title: Text("Name of the food Item"),
+//                  children: <Widget>[
+//                    SizedBox(
+//                      height: 20,
+//                    ),
+//                    Row(
+//                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+//                      children: <Widget>[
+//                        Icon(Icons.edit),
+//                        Icon(Icons.delete),
+//                        Icon(Icons.clear),
+//                      ],
+//                    )
+//                  ],
+//                ),
+//              ),
+//            ),
+//          ),
+//        ],
+//      ),
     );
   }
 }
-
-
-
