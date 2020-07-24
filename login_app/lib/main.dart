@@ -110,7 +110,7 @@ class _topPartState extends State<topPart>{
         ClipPath(
             clipper: CustomShapeClipper(),
             child: Container(
-              height: 400.0,
+              height: 300.0,
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage('assets/img5.jpg'),
