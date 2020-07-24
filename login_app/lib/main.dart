@@ -35,9 +35,13 @@ class login extends StatelessWidget{
                             child: TextField(
                               obscureText: false,
                               style: TextStyle(fontSize: 20),
+                              cursorColor: new Color(0xFF811a41),
                               decoration: InputDecoration(
+                                  border: UnderlineInputBorder(),
+                                  focusedBorder: UnderlineInputBorder(
+                                      borderSide: BorderSide(color: new Color(0xFF811a41))),
                                 labelText: 'Email Id',
-                                labelStyle: TextStyle(color: Colors.blueGrey,)
+                                  labelStyle: TextStyle(color: Color(0xFF811a41))
                               ),
                             ),
                           ),
@@ -46,9 +50,13 @@ class login extends StatelessWidget{
                             child: TextField(
                               obscureText: true,
                               style: TextStyle(fontSize: 20),
+                              cursorColor: new Color(0xFF811a41),
                               decoration: InputDecoration(
+                                  border: UnderlineInputBorder(),
+                                  focusedBorder: UnderlineInputBorder(
+                                      borderSide: BorderSide(color: new Color(0xFF811a41))),
                                 labelText: 'Password',
-                                  labelStyle: TextStyle(color: Colors.blueGrey)
+                                  labelStyle: TextStyle(color: Color(0xFF811a41))
                               ),
                             ),
                           ),
@@ -56,7 +64,7 @@ class login extends StatelessWidget{
                             padding: const EdgeInsets.fromLTRB(0.0,20.0,0.0,10.0),
                             child: Text(
                               'Forgot Password',
-                                style: TextStyle(fontSize: 15,color: Colors.blueGrey)
+                                style: TextStyle(fontSize: 15,color: Color(0xFF811a41))
                             ),
                           )
                         ],
@@ -88,7 +96,7 @@ class login extends StatelessWidget{
             top: 630,
             child: Text(
                 'Click Here to Sign Up',
-                style: TextStyle(fontSize: 20,color: Colors.blueGrey)
+                style: TextStyle(fontSize: 20,color: Color(0xFF811a41))
             ),
           )
         ],
