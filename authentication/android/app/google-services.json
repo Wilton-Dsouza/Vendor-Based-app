@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "153864507863",
+    "firebase_url": "https://merchant-app-hurryb.firebaseio.com",
+    "project_id": "merchant-app-hurryb",
+    "storage_bucket": "merchant-app-hurryb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:153864507863:android:1e60fe4023a5c7249a7b92",
+        "android_client_info": {
+          "package_name": "com.hurryburry.merchant_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "153864507863-1pdaht606o66b954e6e40j0b30q2dtqo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjL4syv5nfg0WNShVtVU4GlLVL2Gbk7Bg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "153864507863-1pdaht606o66b954e6e40j0b30q2dtqo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
