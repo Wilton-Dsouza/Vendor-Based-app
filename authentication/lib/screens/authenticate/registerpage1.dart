@@ -7,33 +7,42 @@ class RegisterPage1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFF811a41),
         body: Center(
       child: SingleChildScrollView(
         child: Card(
           child: Column(
             children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.fromLTRB(0.0, 25.0, 0.0, 0.0),
-                child: Row(
+              Column(
                   children: <Widget>[
-                    GestureDetector(
-                      child: IconButton(icon: Icon(Icons.arrow_back)),
-                      onTap: () {
-                        this.toggleView();
-                      },
-                    ),
                     Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: Align(
-                          child: Text(
-                        'Registration',
-                        style: TextStyle(
-                            fontSize: 25, fontWeight: FontWeight.bold),
-                      )),
-                    ),
+                      padding: EdgeInsets.only(top:10),
+                      child: Row(
+                        children: <Widget>[
+                          GestureDetector(
+                            child: IconButton(icon: Icon(Icons.arrow_back)),
+                            onTap: () {
+                              this.toggleView();
+                            },
+                          ),
+                        ],
+                      ),
+                      ),
+                    Row(
+                      children: <Widget>[
+                        Padding(
+                          padding: const EdgeInsets.only(left:20.0),
+                          child: Align(
+                              child: Text(
+                                'Registration',
+                                style: TextStyle(
+                                    fontSize: 25, fontWeight: FontWeight.bold),
+                              )),
+                        ),
+                      ],
+                    )
                   ],
                 ),
-              ),
               Padding(
                 padding: const EdgeInsets.fromLTRB(20.0, 8.0, 20.0, 0.0),
                 child: TextField(
@@ -164,19 +173,19 @@ class _selectcategoryState extends State<selectcategory> {
               value: _value,
               items: [
                 DropdownMenuItem(
-                  child: Text("Starters",
+                  child: Text("Restaurant",
                       style: TextStyle(
                           fontSize: 20, color: new Color(0xFF811a41))),
                   value: 1,
                 ),
                 DropdownMenuItem(
-                  child: Text("Main Course",
+                  child: Text("Cloud Kitchen",
                       style: TextStyle(
                           fontSize: 20, color: new Color(0xFF811a41))),
                   value: 2,
                 ),
                 DropdownMenuItem(
-                    child: Text("Deserts",
+                    child: Text("Vendors",
                         style: TextStyle(
                             fontSize: 20, color: new Color(0xFF811a41))),
                     value: 3),

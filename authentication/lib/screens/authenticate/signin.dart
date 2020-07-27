@@ -48,14 +48,14 @@ class _SignInState extends State<SignIn> {
               ClipPath(
                 clipper: CustomShapeClipper(),
                 child: Container(
+//                  color: Color(0xFF811a41),
                   height: 300.0,
-                  color: Color(0xFF811a41),
-//                  decoration: BoxDecoration(
-//                    image: DecorationImage(
-//                      image: AssetImage('assets/img5.jpg'),
-//                      fit: BoxFit.fill,
-//                    ),
-//                  ),
+                   decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage('assets/img5.jpg'),
+                      fit: BoxFit.fill,
+                    ),
+                  ),
                 ),
               ),
             ],
@@ -71,14 +71,27 @@ class _SignInState extends State<SignIn> {
                       padding: const EdgeInsets.all(8.0),
                       child: Column(
                         children: <Widget>[
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Text(
-                              'Login',
-                              style: TextStyle(
-                                  fontSize: 50, fontWeight: FontWeight.bold),
-                            ),
+                          Stack(
+                            children: <Widget>[
+                              Padding(
+                                  padding: EdgeInsets.only(top: 10),
+                                  child:Text('Hurry',style: TextStyle(
+                                      color: Colors.grey.withOpacity(0.95),
+                                      fontSize: 75,
+                                      fontWeight: FontWeight.bold
+                                  ),)
+                              ),
+                              Padding(
+                                  padding: EdgeInsets.only(top: 55),
+                                  child:Text('Burry',style: TextStyle(
+                                      color: Color(0XFF811a41).withOpacity(0.85),
+                                      fontSize: 75,
+                                      fontWeight: FontWeight.bold
+                                  ),)
+                              ),
+                            ],
                           ),
+
                           Padding(
                             padding: const EdgeInsets.fromLTRB(
                                 10.0, 0.0, 10.0, 10.0),
@@ -94,10 +107,13 @@ class _SignInState extends State<SignIn> {
                                 setState(() => _email = val);
                               },
                               style: TextStyle(fontSize: 20),
+                              cursorColor: new Color(0xFF811a41),
                               decoration: InputDecoration(
+                                  focusedBorder: UnderlineInputBorder(
+                                      borderSide: BorderSide(color: new Color(0xFF811a41))),
                                   labelText: 'Email Id',
                                   labelStyle: TextStyle(
-                                    color: Colors.blueGrey,
+                                    color: Color(0xFF811a41),
                                   )),
                             ),
                           ),
@@ -117,10 +133,13 @@ class _SignInState extends State<SignIn> {
                               },
                               obscureText: true,
                               style: TextStyle(fontSize: 20),
+                              cursorColor: new Color(0xFF811a41),
                               decoration: InputDecoration(
+                                  focusedBorder: UnderlineInputBorder(
+                                      borderSide: BorderSide(color: new Color(0xFF811a41))),
                                   labelText: 'Password',
                                   labelStyle:
-                                      TextStyle(color: Colors.blueGrey)),
+                                      TextStyle(color: Color(0xFF811a41))),
                             ),
                           ),
                           Padding(
