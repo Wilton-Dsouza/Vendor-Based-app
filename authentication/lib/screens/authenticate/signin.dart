@@ -66,90 +66,93 @@ class _SignInState extends State<SignIn> {
               child: SingleChildScrollView(
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Card(
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Column(
-                        children: <Widget>[
-                          Stack(
-                            children: <Widget>[
-                              Padding(
-                                  padding: EdgeInsets.only(top: 10),
-                                  child:Text('Hurry',style: TextStyle(
-                                      color: Colors.grey.withOpacity(0.95),
-                                      fontSize: 75,
-                                      fontWeight: FontWeight.bold
-                                  ),)
-                              ),
-                              Padding(
-                                  padding: EdgeInsets.only(top: 55),
-                                  child:Text('Burry',style: TextStyle(
-                                      color: Color(0XFF811a41).withOpacity(0.85),
-                                      fontSize: 75,
-                                      fontWeight: FontWeight.bold
-                                  ),)
-                              ),
-                            ],
-                          ),
+                  child: Container(
+                    height: MediaQuery.of(context).size.height*0.58,
+                    child: Card(
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                          children: <Widget>[
+                            Stack(
+                              children: <Widget>[
+                                Padding(
+                                    padding: EdgeInsets.only(top: 10),
+                                    child:Text('Hurry',style: TextStyle(
+                                        color: Colors.grey.withOpacity(0.95),
+                                        fontSize: 75,
+                                        fontWeight: FontWeight.bold
+                                    ),)
+                                ),
+                                Padding(
+                                    padding: EdgeInsets.only(top: 55),
+                                    child:Text('Burry',style: TextStyle(
+                                        color: Color(0XFF811a41).withOpacity(0.85),
+                                        fontSize: 75,
+                                        fontWeight: FontWeight.bold
+                                    ),)
+                                ),
+                              ],
+                            ),
 
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(
-                                10.0, 0.0, 10.0, 10.0),
-                            child: TextFormField(
-                              validator: (input) {
-                                if (input.isEmpty) {
-                                  return 'Please fill out Email';
-                                }
-                                return '';
-                              },
+                            Padding(
+                              padding: const EdgeInsets.fromLTRB(
+                                  10.0, 0.0, 10.0, 10.0),
+                              child: TextFormField(
+                                validator: (input) {
+                                  if (input.isEmpty) {
+                                    return 'Please fill out Email';
+                                  }
+                                  return '';
+                                },
 //                              onSaved: (input) => _email = input,
-                              onChanged: (val) {
-                                setState(() => _email = val);
-                              },
-                              style: TextStyle(fontSize: 20),
-                              cursorColor: new Color(0xFF811a41),
-                              decoration: InputDecoration(
-                                  focusedBorder: UnderlineInputBorder(
-                                      borderSide: BorderSide(color: new Color(0xFF811a41))),
-                                  labelText: 'Email Id',
-                                  labelStyle: TextStyle(
-                                    color: Color(0xFF811a41),
-                                  )),
+                                onChanged: (val) {
+                                  setState(() => _email = val);
+                                },
+                                style: TextStyle(fontSize: 20),
+                                cursorColor: new Color(0xFF811a41),
+                                decoration: InputDecoration(
+                                    focusedBorder: UnderlineInputBorder(
+                                        borderSide: BorderSide(color: new Color(0xFF811a41))),
+                                    labelText: 'Email Id',
+                                    labelStyle: TextStyle(
+                                      color: Color(0xFF811a41),
+                                    )),
+                              ),
                             ),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.fromLTRB(
-                                10.0, 0.0, 10.0, 10.0),
-                            child: TextFormField(
-                              validator: (input) {
-                                if (input.length < 6) {
-                                  return 'Password needs to be atleast 6 characters';
-                                }
-                                return '';
-                              },
+                            Padding(
+                              padding: const EdgeInsets.fromLTRB(
+                                  10.0, 0.0, 10.0, 10.0),
+                              child: TextFormField(
+                                validator: (input) {
+                                  if (input.length < 6) {
+                                    return 'Password needs to be atleast 6 characters';
+                                  }
+                                  return '';
+                                },
 //                              onSaved: (input) => _password = input,
-                              onChanged: (val) {
-                                setState(() => _password = val);
-                              },
-                              obscureText: true,
-                              style: TextStyle(fontSize: 20),
-                              cursorColor: new Color(0xFF811a41),
-                              decoration: InputDecoration(
-                                  focusedBorder: UnderlineInputBorder(
-                                      borderSide: BorderSide(color: new Color(0xFF811a41))),
-                                  labelText: 'Password',
-                                  labelStyle:
-                                      TextStyle(color: Color(0xFF811a41))),
+                                onChanged: (val) {
+                                  setState(() => _password = val);
+                                },
+                                obscureText: true,
+                                style: TextStyle(fontSize: 20),
+                                cursorColor: new Color(0xFF811a41),
+                                decoration: InputDecoration(
+                                    focusedBorder: UnderlineInputBorder(
+                                        borderSide: BorderSide(color: new Color(0xFF811a41))),
+                                    labelText: 'Password',
+                                    labelStyle:
+                                        TextStyle(color: Color(0xFF811a41))),
+                              ),
                             ),
-                          ),
-                          Padding(
-                            padding:
-                                const EdgeInsets.fromLTRB(0.0, 20.0, 0.0, 10.0),
-                            child: Text('Forgot Password',
-                                style: TextStyle(
-                                    fontSize: 15, color: Colors.blueGrey)),
-                          )
-                        ],
+                            Padding(
+                              padding:
+                                  const EdgeInsets.fromLTRB(0.0, 20.0, 0.0, 10.0),
+                              child: Text('Forgot Password',
+                                  style: TextStyle(
+                                      fontSize: 15, color: Colors.blueGrey)),
+                            )
+                          ],
+                        ),
                       ),
                     ),
                   ),
