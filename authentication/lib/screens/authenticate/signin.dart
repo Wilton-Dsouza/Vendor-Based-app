@@ -56,92 +56,95 @@ class _SignInState extends State<SignIn> {
                     child: SingleChildScrollView(
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
-                        child: Card(
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Column(
-                              children: <Widget>[
-                                Stack(
-                                  children: <Widget>[
-                                    Padding(
-                                        padding: EdgeInsets.only(top: 10),
-                                        child: Text(
-                                          'Hurry',
-                                          style: TextStyle(
-                                              color:
-                                                  Colors.grey.withOpacity(0.95),
-                                              fontSize: 75,
-                                              fontWeight: FontWeight.bold),
-                                        )),
-                                    Padding(
-                                        padding: EdgeInsets.only(top: 55),
-                                        child: Text(
-                                          'Burry',
-                                          style: TextStyle(
-                                              color: Color(0XFF811a41)
-                                                  .withOpacity(0.85),
-                                              fontSize: 75,
-                                              fontWeight: FontWeight.bold),
-                                        )),
-                                  ],
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.fromLTRB(
-                                      10.0, 0.0, 10.0, 10.0),
-                                  child: TextFormField(
-                                    validator: (input) => input.isEmpty
-                                        ? 'Please fill out Email'
-                                        : null,
+                        child: Container(
+                          height: MediaQuery.of(context).size.height*0.58,
+                          child: Card(
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Column(
+                                children: <Widget>[
+                                  Stack(
+                                    children: <Widget>[
+                                      Padding(
+                                          padding: EdgeInsets.only(top: 10),
+                                          child: Text(
+                                            'Hurry',
+                                            style: TextStyle(
+                                                color:
+                                                    Colors.grey.withOpacity(0.95),
+                                                fontSize: 75,
+                                                fontWeight: FontWeight.bold),
+                                          )),
+                                      Padding(
+                                          padding: EdgeInsets.only(top: 55),
+                                          child: Text(
+                                            'Burry',
+                                            style: TextStyle(
+                                                color: Color(0XFF811a41)
+                                                    .withOpacity(0.85),
+                                                fontSize: 75,
+                                                fontWeight: FontWeight.bold),
+                                          )),
+                                    ],
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.fromLTRB(
+                                        10.0, 0.0, 10.0, 10.0),
+                                    child: TextFormField(
+                                      validator: (input) => input.isEmpty
+                                          ? 'Please fill out Email'
+                                          : null,
 
 //                              onSaved: (input) => _email = input,
-                                    onChanged: (input) {
-                                      setState(() => _email = input);
-                                    },
-                                    style: TextStyle(fontSize: 20),
-                                    cursorColor: new Color(0xFF811a41),
-                                    decoration: InputDecoration(
-                                        focusedBorder: UnderlineInputBorder(
-                                            borderSide: BorderSide(
-                                                color: new Color(0xFF811a41))),
-                                        labelText: 'Email Id',
-                                        labelStyle: TextStyle(
-                                          color: Color(0xFF811a41),
-                                        )),
+                                      onChanged: (input) {
+                                        setState(() => _email = input);
+                                      },
+                                      style: TextStyle(fontSize: 20),
+                                      cursorColor: new Color(0xFF811a41),
+                                      decoration: InputDecoration(
+                                          focusedBorder: UnderlineInputBorder(
+                                              borderSide: BorderSide(
+                                                  color: new Color(0xFF811a41))),
+                                          labelText: 'Email Id',
+                                          labelStyle: TextStyle(
+                                            color: Color(0xFF811a41),
+                                          )),
+                                    ),
                                   ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.fromLTRB(
-                                      10.0, 0.0, 10.0, 10.0),
-                                  child: TextFormField(
-                                    validator: (input) => input.length < 6
-                                        ? 'Invalid Password'
-                                        : null,
+                                  Padding(
+                                    padding: const EdgeInsets.fromLTRB(
+                                        10.0, 0.0, 10.0, 10.0),
+                                    child: TextFormField(
+                                      validator: (input) => input.length < 6
+                                          ? 'Invalid Password'
+                                          : null,
 
 //                              onSaved: (input) => _password = input,
-                                    onChanged: (input) {
-                                      setState(() => _password = input);
-                                    },
-                                    obscureText: true,
-                                    style: TextStyle(fontSize: 20),
-                                    cursorColor: new Color(0xFF811a41),
-                                    decoration: InputDecoration(
-                                        focusedBorder: UnderlineInputBorder(
-                                            borderSide: BorderSide(
-                                                color: new Color(0xFF811a41))),
-                                        labelText: 'Password',
-                                        labelStyle: TextStyle(
-                                            color: Color(0xFF811a41))),
+                                      onChanged: (input) {
+                                        setState(() => _password = input);
+                                      },
+                                      obscureText: true,
+                                      style: TextStyle(fontSize: 20),
+                                      cursorColor: new Color(0xFF811a41),
+                                      decoration: InputDecoration(
+                                          focusedBorder: UnderlineInputBorder(
+                                              borderSide: BorderSide(
+                                                  color: new Color(0xFF811a41))),
+                                          labelText: 'Password',
+                                          labelStyle: TextStyle(
+                                              color: Color(0xFF811a41))),
+                                    ),
                                   ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.fromLTRB(
-                                      0.0, 20.0, 0.0, 10.0),
-                                  child: Text('Forgot Password',
-                                      style: TextStyle(
-                                          fontSize: 15,
-                                          color: Colors.blueGrey)),
-                                )
-                              ],
+                                  Padding(
+                                    padding: const EdgeInsets.fromLTRB(
+                                        0.0, 20.0, 0.0, 10.0),
+                                    child: Text('Forgot Password',
+                                        style: TextStyle(
+                                            fontSize: 15,
+                                            color: Colors.blueGrey)),
+                                  )
+                                ],
+                              ),
                             ),
                           ),
                         ),
