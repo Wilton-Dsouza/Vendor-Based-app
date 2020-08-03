@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
+class RegisterPage4 extends StatefulWidget {
+  var details = new Map();
+  RegisterPage4({this.details});
 
-class registerpage4 extends StatefulWidget {
-  _registerpage4 createState() => _registerpage4();
+  _RegisterPage4 createState() => _RegisterPage4();
 }
 
-class _registerpage4 extends State<registerpage4> {
+class _RegisterPage4 extends State<RegisterPage4> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,28 +16,33 @@ class _registerpage4 extends State<registerpage4> {
         child: Card(
           child: ListView(
             children: <Widget>[
-              IconButton(
-                alignment: Alignment.topLeft,
-                icon: Icon(
-                  Icons.arrow_back,
-                  color: Colors.black,
+              GestureDetector(
+                onTap: () {
+                  Navigator.pop(context);
+                },
+                child: IconButton(
+                  alignment: Alignment.topLeft,
+                  icon: Icon(
+                    Icons.arrow_back,
+                    color: Colors.black,
+                  ),
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.only(right: 190),
                 child: Align(
                     child: Text(
-                      'Upload Pictures',
-                      style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-                    )),
+                  'Upload Pictures',
+                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                )),
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 30, right: 310),
                 child: Align(
                     child: Text(
-                      'Logo',
-                      style: TextStyle(fontSize: 20),
-                    )),
+                  'Logo',
+                  style: TextStyle(fontSize: 20),
+                )),
               ),
               Row(
                 children: <Widget>[
@@ -73,9 +80,9 @@ class _registerpage4 extends State<registerpage4> {
                 padding: const EdgeInsets.only(top: 30, right: 240),
                 child: Align(
                     child: Text(
-                      'Cover Picture',
-                      style: TextStyle(fontSize: 20),
-                    )),
+                  'Cover Picture',
+                  style: TextStyle(fontSize: 20),
+                )),
               ),
               Row(
                 children: <Widget>[
@@ -113,14 +120,15 @@ class _registerpage4 extends State<registerpage4> {
                 padding: const EdgeInsets.only(top: 30, right: 190),
                 child: Align(
                     child: Text(
-                      'Restaurant Pictures',
-                      style: TextStyle(fontSize: 20),
-                    )),
+                  'Restaurant Pictures',
+                  style: TextStyle(fontSize: 20),
+                )),
               ),
               Row(
                 children: <Widget>[
                   Padding(
-                    padding: const EdgeInsets.only(top: 10, left: 20,right: 20),
+                    padding:
+                        const EdgeInsets.only(top: 10, left: 20, right: 20),
                     child: Container(
                       width: 160,
                       height: 150,
@@ -140,7 +148,8 @@ class _registerpage4 extends State<registerpage4> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(top: 10, left: 20,right: 20),
+                    padding:
+                        const EdgeInsets.only(top: 10, left: 20, right: 20),
                     child: Container(
                       width: 160,
                       height: 150,
@@ -164,7 +173,8 @@ class _registerpage4 extends State<registerpage4> {
               Row(
                 children: <Widget>[
                   Padding(
-                    padding: const EdgeInsets.only(top: 30, left: 20,right: 20),
+                    padding:
+                        const EdgeInsets.only(top: 30, left: 20, right: 20),
                     child: Container(
                       width: 160,
                       height: 150,
@@ -184,7 +194,8 @@ class _registerpage4 extends State<registerpage4> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(top: 30, left: 20,right: 20),
+                    padding:
+                        const EdgeInsets.only(top: 30, left: 20, right: 20),
                     child: Container(
                       width: 160,
                       height: 150,
