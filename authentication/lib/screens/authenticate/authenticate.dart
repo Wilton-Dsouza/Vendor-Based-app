@@ -22,7 +22,9 @@ class _AuthenticateState extends State<Authenticate> {
       // First toggleView is the property name and can be anything.
       // Just need to match the constructor in signin page
     } else {
-      return RegisterPage1(toggleView: toggleView);
+      return RegisterPage1(
+        toggleView: toggleView,
+      );
     }
   }
 }

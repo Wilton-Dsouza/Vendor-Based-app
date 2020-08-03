@@ -1,55 +1,44 @@
 import 'package:flutter/material.dart';
-import 'package:login_app/screens/authenticate/registerpage4.dart';
 
-class RegisterPage3 extends StatefulWidget {
-  var details = new Map();
-  RegisterPage3({this.details});
-
-  _RegisterPage3State createState() => _RegisterPage3State();
+void main() {
+  runApp(MaterialApp(
+      home: accdetails())
+  );
 }
 
-class _RegisterPage3State extends State<RegisterPage3> {
+class accdetails extends StatefulWidget{
+  _accdetailsState createState() => _accdetailsState();
+}
+
+class _accdetailsState extends State<accdetails> {
+
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context){
     return Scaffold(
       backgroundColor: Color(0xFF811a41),
       body: Card(
         child: ListView(
           children: <Widget>[
             Column(
-              children: <Widget>[
-                Column(
-                  children: <Widget>[
-                    Row(
-                      children: <Widget>[
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.pop(context);
-                          },
-                          child: IconButton(
-                            icon: Icon(
-                              Icons.arrow_back,
-                              color: Colors.black,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    Row(
-                      children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.only(left: 20.0),
-                          child: Align(
-                              child: Text(
-                            'Bank Details',
-                            style: TextStyle(
-                                fontSize: 25, fontWeight: FontWeight.bold),
-                          )),
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
+              children: <Widget>[Column(
+                children: <Widget>[
+                  Row(
+                    children: <Widget>[
+                      IconButton(icon: Icon(Icons.arrow_back, color: Colors.black,
+                      ),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.only(left:20.0),
+                        child: Align(child: Text('Bank Details',style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold),)),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(20.0, 30.0, 20.0, 0.0),
                   child: TextField(
@@ -59,10 +48,10 @@ class _RegisterPage3State extends State<RegisterPage3> {
                     decoration: InputDecoration(
                         border: UnderlineInputBorder(),
                         focusedBorder: UnderlineInputBorder(
-                            borderSide:
-                                BorderSide(color: new Color(0xFF811a41))),
+                            borderSide: BorderSide(color: new Color(0xFF811a41))),
                         labelText: 'Account Number',
-                        labelStyle: TextStyle(color: Color(0xFF811a41))),
+                        labelStyle: TextStyle(color: Color(0xFF811a41))
+                    ),
                   ),
                 ),
                 Padding(
@@ -74,10 +63,10 @@ class _RegisterPage3State extends State<RegisterPage3> {
                     decoration: InputDecoration(
                         border: UnderlineInputBorder(),
                         focusedBorder: UnderlineInputBorder(
-                            borderSide:
-                                BorderSide(color: new Color(0xFF811a41))),
+                            borderSide: BorderSide(color: new Color(0xFF811a41))),
                         labelText: 'Confirm Account Number',
-                        labelStyle: TextStyle(color: Color(0xFF811a41))),
+                        labelStyle: TextStyle(color: Color(0xFF811a41))
+                    ),
                   ),
                 ),
                 Padding(
@@ -89,10 +78,10 @@ class _RegisterPage3State extends State<RegisterPage3> {
                     decoration: InputDecoration(
                         border: UnderlineInputBorder(),
                         focusedBorder: UnderlineInputBorder(
-                            borderSide:
-                                BorderSide(color: new Color(0xFF811a41))),
+                            borderSide: BorderSide(color: new Color(0xFF811a41))),
                         labelText: 'IFSC Code',
-                        labelStyle: TextStyle(color: Color(0xFF811a41))),
+                        labelStyle: TextStyle(color: Color(0xFF811a41))
+                    ),
                   ),
                 ),
                 Padding(
@@ -104,10 +93,10 @@ class _RegisterPage3State extends State<RegisterPage3> {
                     decoration: InputDecoration(
                         border: UnderlineInputBorder(),
                         focusedBorder: UnderlineInputBorder(
-                            borderSide:
-                                BorderSide(color: new Color(0xFF811a41))),
+                            borderSide: BorderSide(color: new Color(0xFF811a41))),
                         labelText: 'Account Holder Name',
-                        labelStyle: TextStyle(color: Color(0xFF811a41))),
+                        labelStyle: TextStyle(color: Color(0xFF811a41))
+                    ),
                   ),
                 ),
                 Padding(
@@ -117,19 +106,10 @@ class _RegisterPage3State extends State<RegisterPage3> {
                     height: 50,
                     child: RaisedButton(
                       color: new Color(0xFF811a41),
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => RegisterPage4(
-                                details: widget.details,
-                              ),
-                            ));
-                      },
+                      onPressed: () {},
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30)),
-                      child: Text('Next',
-                          style: TextStyle(fontSize: 20, color: Colors.white)),
+                      child: Text('Next', style: TextStyle(fontSize: 20,color: Colors.white)),
                     ),
                   ),
                 ),
@@ -140,4 +120,7 @@ class _RegisterPage3State extends State<RegisterPage3> {
       ),
     );
   }
+
+
 }
+
