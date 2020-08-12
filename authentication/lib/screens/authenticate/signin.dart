@@ -4,8 +4,6 @@ import 'package:login_app/main.dart';
 import 'package:login_app/services/auth.dart';
 import 'package:login_app/shared/loading.dart';
 
-import '../../CustomShapeClipper.dart';
-
 class SignIn extends StatefulWidget {
   final Function toggleView;
   SignIn({this.toggleView});
@@ -30,34 +28,34 @@ class _SignInState extends State<SignIn> {
     return loading
         ? Loading()
         : Scaffold(
-            body: Stack(
-              alignment: Alignment.topCenter,
-              children: <Widget>[
-                Column(
-                  children: <Widget>[
-                    ClipPath(
-                      clipper: CustomShapeClipper(),
-                      child: Container(
+            body: Container(
+              height: MediaQuery.of(context).size.height,
+              child: Stack(
+                alignment: Alignment.topCenter,
+                children: <Widget>[
+                  Column(
+                    children: <Widget>[
+                      ClipPath(
+                        clipper: CustomShapeClipper(),
+                        child: Container(
 //                  color: Color(0xFF811a41),
-                        height: 300.0,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage('assets/img5.jpg'),
-                            fit: BoxFit.fill,
+                          height: 300.0,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              image: AssetImage('assets/img5.jpg'),
+                              fit: BoxFit.fill,
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-                Form(
-                  key: _formKey,
-                  child: Center(
-                    child: SingleChildScrollView(
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Container(
-                          height: MediaQuery.of(context).size.height * 0.58,
+                    ],
+                  ),
+                  Form(
+                    key: _formKey,
+                    child: Center(
+                      child: SingleChildScrollView(
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
                           child: Card(
                             child: Padding(
                               padding: const EdgeInsets.all(8.0),
@@ -154,53 +152,76 @@ class _SignInState extends State<SignIn> {
                       ),
                     ),
                   ),
-                ),
-                Positioned(
-                  top: 550,
-                  width: 200,
-                  height: 50,
-                  child: RaisedButton(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                    onPressed: () async {
+                  Positioned(
+                    top: MediaQuery.of(context).size.height*0.78,
+                    width: 200,
+                    height: 50,
+                    child: RaisedButton(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      onPressed: () async {
 //                dynamic result = await _auth.signInAnon();
-                      // have to call the signInAnon() defined in auth.dart by using _auth instance defined above itself
-                      // will return user or null(check auth.dart), hence dynamic
+                        // have to call the signInAnon() defined in auth.dart by using _auth instance defined above itself
+                        // will return user or null(check auth.dart), hence dynamic
 
-                      if (_formKey.currentState.validate()) {
+                        if (_formKey.currentState.validate()) {
 //                        print(_email);
 //                        print(_password);
-                        setState(() => loading = true);
-                        dynamic result = await _auth.signInWithEmailAndPassword(
-                            _email, _password);
-                        if (result == null) {
-                          setState(() {
-                            _error = 'Invalid email or password';
-                            loading = false;
-                          });
-                          // TODO:_error have to be shown in the front end
+                          setState(() => loading = true);
+                          dynamic result = await _auth.signInWithEmailAndPassword(
+                              _email, _password);
+                          if (result == null) {
+                            setState(() {
+                              _error = 'Invalid email or password';
+                              loading = false;
+                            });
+                            // TODO:_error have to be shown in the front end
+                          }
+                          // no need for else because the stream will detect the auth change which detects the
+                          // registered user from the firebase and take us to the home page
                         }
-                        // no need for else because the stream will detect the auth change which detects the
-                        // registered user from the firebase and take us to the home page
-                      }
-                    },
-                    color: new Color(0xFF811a41),
-                    child: Text('Login',
-                        style: TextStyle(fontSize: 20, color: Colors.white)),
+                      },
+                      color: new Color(0xFF811a41),
+                      child: Text('Login',
+                          style: TextStyle(fontSize: 20, color: Colors.white)),
+                    ),
                   ),
-                ),
-                Positioned(
-                  top: 630,
-                  child: GestureDetector(
-                    child: Text('Click Here to Sign Up',
-                        style: TextStyle(fontSize: 20, color: Colors.blueGrey)),
-                    onTap: () => widget.toggleView(),
-                    //cant use this.toggleView() as it refers the State instead of Widget
-                  ),
-                )
-              ],
+                  Positioned(
+                    top: MediaQuery.of(context).size.height*0.88,
+                    child: GestureDetector(
+                      child: Text('Click Here to Sign Up',
+                          style: TextStyle(fontSize: 20, color: Colors.blueGrey)),
+                      onTap: () => widget.toggleView(),
+                      //cant use this.toggleView() as it refers the State instead of Widget
+                    ),
+                  )
+                ],
+              ),
             ),
           );
   }
+}
+
+class CustomShapeClipper extends CustomClipper<Path>{
+  @override
+  getClip(Size size) {
+    final Path path =Path();
+    path.lineTo(0.0, size.height);
+
+    var firstEndPoint =Offset(size.width*.5,size.height-30.0);
+    var firstControlPoint =Offset(size.width*0.25,size.height-50.0);
+    path.quadraticBezierTo(firstControlPoint.dx, firstControlPoint.dy, firstEndPoint.dx, firstEndPoint.dy);
+
+    var secondEndPoint =Offset(size.width,size.height-80.0);
+    var secondControlPoint =Offset(size.width*0.75,size.height-10.0);
+    path.quadraticBezierTo(secondControlPoint.dx, secondControlPoint.dy, secondEndPoint.dx, secondEndPoint.dy);
+
+    path.lineTo(size.width, 0.0);
+    path.close();
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper oldClipper) => true;
 }
