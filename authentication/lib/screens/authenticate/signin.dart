@@ -57,7 +57,7 @@ class _SignInState extends State<SignIn> {
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Container(
-                          height: MediaQuery.of(context).size.height*0.58,
+                          height: MediaQuery.of(context).size.height * 0.58,
                           child: Card(
                             child: Padding(
                               padding: const EdgeInsets.all(8.0),
@@ -70,8 +70,8 @@ class _SignInState extends State<SignIn> {
                                           child: Text(
                                             'Hurry',
                                             style: TextStyle(
-                                                color:
-                                                    Colors.grey.withOpacity(0.95),
+                                                color: Colors.grey
+                                                    .withOpacity(0.95),
                                                 fontSize: 75,
                                                 fontWeight: FontWeight.bold),
                                           )),
@@ -104,7 +104,8 @@ class _SignInState extends State<SignIn> {
                                       decoration: InputDecoration(
                                           focusedBorder: UnderlineInputBorder(
                                               borderSide: BorderSide(
-                                                  color: new Color(0xFF811a41))),
+                                                  color:
+                                                      new Color(0xFF811a41))),
                                           labelText: 'Email Id',
                                           labelStyle: TextStyle(
                                             color: Color(0xFF811a41),
@@ -129,7 +130,8 @@ class _SignInState extends State<SignIn> {
                                       decoration: InputDecoration(
                                           focusedBorder: UnderlineInputBorder(
                                               borderSide: BorderSide(
-                                                  color: new Color(0xFF811a41))),
+                                                  color:
+                                                      new Color(0xFF811a41))),
                                           labelText: 'Password',
                                           labelStyle: TextStyle(
                                               color: Color(0xFF811a41))),
@@ -138,6 +140,7 @@ class _SignInState extends State<SignIn> {
                                   Padding(
                                     padding: const EdgeInsets.fromLTRB(
                                         0.0, 20.0, 0.0, 10.0),
+                                    //TODO: Forget Password Coding
                                     child: Text('Forgot Password',
                                         style: TextStyle(
                                             fontSize: 15,

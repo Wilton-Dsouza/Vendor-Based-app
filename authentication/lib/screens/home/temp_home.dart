@@ -1,5 +1,5 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:login_app/models/userinfo.dart';
 import 'package:login_app/screens/home/userlist.dart';
 import 'package:login_app/services/auth.dart';
 import 'package:login_app/services/database.dart';
@@ -10,10 +10,11 @@ class TempHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return StreamProvider<QuerySnapshot>.value(
+//    return StreamProvider<QuerySnapshot>.value(
+    return StreamProvider<List<MyUserInfo>>.value(
       //done to access the userInfo document within the widget StreamProvider
       value: DatabaseService()
-          .userInfo, //'userInfo' is  the Stream in databse.dart
+          .userInfo, //'userInfo' is  the Stream in database.dart
       child: Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(

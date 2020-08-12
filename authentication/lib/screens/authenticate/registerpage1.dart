@@ -13,10 +13,8 @@ class RegisterPage1 extends StatefulWidget {
 class _RegisterPage1State extends State<RegisterPage1> {
   var details = new Map();
 //  String _email = '', _password = '',
-  String _error = '';
   int _value;
 
-  final AuthService _auth = AuthService();
   final _formKey = GlobalKey<FormState>();
 
   @override
@@ -65,7 +63,7 @@ class _RegisterPage1State extends State<RegisterPage1> {
                           ? 'Please enter a restaurant name'
                           : null,
                       onChanged: (input) {
-                        details['restaurant_name'] = input;
+                        details['restaurant_name'] = input.trim();
                       },
                       style: TextStyle(fontSize: 20),
                       cursorColor: new Color(0xFF811a41),
@@ -84,7 +82,7 @@ class _RegisterPage1State extends State<RegisterPage1> {
                       validator: (input) =>
                           input.isEmpty ? 'Please enter a location' : null,
                       onChanged: (input) {
-                        details['location'] = input;
+                        details['location'] = input.trim();
                       },
                       style: TextStyle(fontSize: 20),
                       decoration: InputDecoration(
@@ -104,7 +102,7 @@ class _RegisterPage1State extends State<RegisterPage1> {
                       child: Padding(
                         padding:
                             const EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 0.0),
-                        child: DropdownButton(
+                        child: DropdownButtonFormField(
                             iconEnabledColor: new Color(0xFF811a41),
                             isExpanded: true,
                             hint: Text(
@@ -142,7 +140,7 @@ class _RegisterPage1State extends State<RegisterPage1> {
                                   value: 4)
                             ],
                             onChanged: (value) {
-                              details['establishment_type'] = value;
+                              details['establishment_type'] = value.toString();
                               setState(() {
                                 _value = value;
                               });
@@ -157,7 +155,7 @@ class _RegisterPage1State extends State<RegisterPage1> {
                           ? 'Please enter a valid phone number'
                           : null,
                       onChanged: (input) {
-                        details['phone_number'] = input;
+                        details['phone_number'] = input.trim();
                       },
                       style: TextStyle(fontSize: 20),
                       decoration: InputDecoration(
@@ -175,7 +173,7 @@ class _RegisterPage1State extends State<RegisterPage1> {
                       validator: (input) =>
                           input.isEmpty ? 'Please enter a valid email' : null,
                       onChanged: (input) {
-                        setState(() => details['email'] = input);
+                        setState(() => details['email'] = input.trim());
                       },
                       style: TextStyle(fontSize: 20),
                       decoration: InputDecoration(
@@ -215,9 +213,9 @@ class _RegisterPage1State extends State<RegisterPage1> {
                       validator: (input) => input.trim() != details['password']
                           ? 'Passwords do not match'
                           : null,
-                      onChanged: (input) {
-                        setState(() => details['confirm_password'] = input);
-                      },
+//                      onChanged: (input) {
+//                        setState(() => details['confirm_password'] = input);
+//                      },
                       obscureText: true,
                       style: TextStyle(fontSize: 20),
                       decoration: InputDecoration(
@@ -236,7 +234,8 @@ class _RegisterPage1State extends State<RegisterPage1> {
                       height: 50,
                       child: RaisedButton(
                         color: new Color(0xFF811a41),
-                        onPressed: () async {
+                        onPressed: () {
+                          //check whether async is required
                           if (_formKey.currentState.validate()) {
                             print(details);
                             print(details['email']);
@@ -248,18 +247,6 @@ class _RegisterPage1State extends State<RegisterPage1> {
                                     details: details,
                                   ),
                                 ));
-//                            dynamic result =
-//                                await _auth.registerWithEmailAndPassword(
-//                                    details['email'], details['password']);
-//                            if (result == null) {
-//                              setState(() =>
-//                                  _error = 'Please provide a Valid Email.');
-//                              //different error like user already registered and invalid email have to be shown
-//                              //in the front end somehow (figure out how to differentiate between the two)
-//                            }
-                            //no need for else(in the top if) because the stream will detect the auth change
-                            //which detects a user and take us to the home page
-                            // (atleast for now cause other register page isnt coded for)
                           }
                         },
                         shape: RoundedRectangleBorder(
