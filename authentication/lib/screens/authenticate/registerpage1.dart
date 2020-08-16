@@ -140,7 +140,24 @@ class _RegisterPage1State extends State<RegisterPage1> {
                                   value: 4)
                             ],
                             onChanged: (value) {
-                              details['establishment_type'] = value.toString();
+                              switch (value) {
+                                case 1:
+                                  details['establishment_type'] = 'Restaurant';
+                                  break;
+                                case 2:
+                                  details['establishment_type'] =
+                                      'Cloud Kitchen';
+                                  break;
+                                case 3:
+                                  details['establishment_type'] = 'Vendor';
+                                  break;
+                                case 4:
+                                  details['establishment_type'] = 'Home Baker';
+                                  break;
+                                default:
+                                  details['establishment_type'] =
+                                      'Not Selected';
+                              }
                               setState(() {
                                 _value = value;
                               });

@@ -334,10 +334,11 @@ class _RegisterPage4 extends State<RegisterPage4> {
                               //different error like user already registered and invalid email have to be shown
                               //in the front end somehow (figure out how to differentiate between the two)
                             }
-                            Navigator.push(
-                                context,
+                            Navigator.of(context).pushAndRemoveUntil(
                                 MaterialPageRoute(
-                                    builder: (context) => Wrapper()));
+                                    builder: (context) => Wrapper()),
+                                (route) => false);
+
                             final user =
                                 Provider.of<User>(context, listen: false);
                             print(user.uid);
