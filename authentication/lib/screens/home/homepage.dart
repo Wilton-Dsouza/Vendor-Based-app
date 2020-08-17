@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 
-
 class Menu extends StatefulWidget {
-  _Menu createState() => _Menu();
+  _MenuState createState() => _MenuState();
 }
 
-class _Menu extends State<Menu> {
+class _MenuState extends State<Menu> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -15,7 +14,7 @@ class _Menu extends State<Menu> {
           title: Center(
               child: Text(
             'Home',
-            style: TextStyle(fontSize: 25,color: Colors.black),
+            style: TextStyle(fontSize: 25, color: Colors.black),
           )),
           backgroundColor: Colors.white,
           bottom: TabBar(
@@ -58,7 +57,8 @@ class _Menu extends State<Menu> {
                                 color: Colors.black45,
                               ),
                               Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
                                 children: <Widget>[
                                   Column(
                                     children: <Widget>[
@@ -70,7 +70,10 @@ class _Menu extends State<Menu> {
                                           ),
                                           Text(
                                             'Mark Ready',
-                                            style: TextStyle(fontSize:MediaQuery.of(context).textScaleFactor*15),
+                                            style: TextStyle(
+                                                fontSize: MediaQuery.of(context)
+                                                        .textScaleFactor *
+                                                    15),
                                           )
                                         ],
                                       )
@@ -84,7 +87,11 @@ class _Menu extends State<Menu> {
                                             icon: Icon(Icons.folder_open),
                                           ),
                                           Text('Open',
-                                              style: TextStyle(fontSize:MediaQuery.of(context).textScaleFactor*15))
+                                              style: TextStyle(
+                                                  fontSize:
+                                                      MediaQuery.of(context)
+                                                              .textScaleFactor *
+                                                          15))
                                         ],
                                       )
                                     ],
@@ -118,7 +125,8 @@ class _Menu extends State<Menu> {
                                 color: Colors.black45,
                               ),
                               Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
                                 children: <Widget>[
                                   Column(
                                     children: <Widget>[
@@ -130,7 +138,10 @@ class _Menu extends State<Menu> {
                                           ),
                                           Text(
                                             'Mark Ready',
-                                            style: TextStyle(fontSize:MediaQuery.of(context).textScaleFactor*15),
+                                            style: TextStyle(
+                                                fontSize: MediaQuery.of(context)
+                                                        .textScaleFactor *
+                                                    15),
                                           )
                                         ],
                                       )
@@ -144,7 +155,11 @@ class _Menu extends State<Menu> {
                                             icon: Icon(Icons.folder_open),
                                           ),
                                           Text('Open',
-                                              style: TextStyle(fontSize:MediaQuery.of(context).textScaleFactor*15))
+                                              style: TextStyle(
+                                                  fontSize:
+                                                      MediaQuery.of(context)
+                                                              .textScaleFactor *
+                                                          15))
                                         ],
                                       )
                                     ],
@@ -182,7 +197,8 @@ class _Menu extends State<Menu> {
                                 color: Colors.black45,
                               ),
                               Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
                                 children: <Widget>[
                                   Column(
                                     children: <Widget>[
@@ -194,7 +210,10 @@ class _Menu extends State<Menu> {
                                           ),
                                           Text(
                                             'Mark Ready',
-                                            style: TextStyle(fontSize:MediaQuery.of(context).textScaleFactor*15),
+                                            style: TextStyle(
+                                                fontSize: MediaQuery.of(context)
+                                                        .textScaleFactor *
+                                                    15),
                                           )
                                         ],
                                       )
@@ -208,7 +227,11 @@ class _Menu extends State<Menu> {
                                             icon: Icon(Icons.folder_open),
                                           ),
                                           Text('Open',
-                                              style: TextStyle(fontSize:MediaQuery.of(context).textScaleFactor*15))
+                                              style: TextStyle(
+                                                  fontSize:
+                                                      MediaQuery.of(context)
+                                                              .textScaleFactor *
+                                                          15))
                                         ],
                                       )
                                     ],
@@ -242,7 +265,8 @@ class _Menu extends State<Menu> {
                                 color: Colors.black45,
                               ),
                               Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
                                 children: <Widget>[
                                   Column(
                                     children: <Widget>[
@@ -254,7 +278,10 @@ class _Menu extends State<Menu> {
                                           ),
                                           Text(
                                             'Mark Ready',
-                                            style: TextStyle(fontSize:MediaQuery.of(context).textScaleFactor*15),
+                                            style: TextStyle(
+                                                fontSize: MediaQuery.of(context)
+                                                        .textScaleFactor *
+                                                    15),
                                           )
                                         ],
                                       )
@@ -268,7 +295,11 @@ class _Menu extends State<Menu> {
                                             icon: Icon(Icons.folder_open),
                                           ),
                                           Text('Open',
-                                              style: TextStyle(fontSize:MediaQuery.of(context).textScaleFactor*15))
+                                              style: TextStyle(
+                                                  fontSize:
+                                                      MediaQuery.of(context)
+                                                              .textScaleFactor *
+                                                          15))
                                         ],
                                       )
                                     ],
@@ -288,6 +319,3 @@ class _Menu extends State<Menu> {
     );
   }
 }
-
-
-

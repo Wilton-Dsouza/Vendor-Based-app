@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 
-
-class additem extends StatefulWidget{
-  addItem createState() => addItem();
+class AddItem extends StatefulWidget {
+  _AddItemState createState() => _AddItemState();
 }
 
-class addItem extends State<additem> {
+class _AddItemState extends State<AddItem> {
   int _value = 1;
   @override
   Widget build(BuildContext context) {
@@ -17,19 +16,20 @@ class addItem extends State<additem> {
           backgroundColor: Colors.white,
           title: Text(
             'Add Item',
-            style: TextStyle(fontSize: 25,color: Colors.black),
+            style: TextStyle(fontSize: 25, color: Colors.black),
           ),
         ),
         body: SingleChildScrollView(
           child: Column(
             children: <Widget>[
               Container(
-                child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                child:
+                    Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                   Expanded(
                     child: Column(
                       children: <Widget>[
                         Padding(
-                          padding: const EdgeInsets.only(top:20.0),
+                          padding: const EdgeInsets.only(top: 20.0),
                           child: Container(
                             width: 150,
                             height: 150,
@@ -44,8 +44,7 @@ class addItem extends State<additem> {
                                     size: 40.0,
                                     color: Color(0xFF811a41),
                                   ),
-                                )
-                            ),
+                                )),
                           ),
                         ),
                       ],
@@ -54,9 +53,9 @@ class addItem extends State<additem> {
                 ]),
               ),
               Padding(
-                padding: const EdgeInsets.only(top:15.0),
+                padding: const EdgeInsets.only(top: 15.0),
                 child: Text('Insert Image',
-                    style: TextStyle(color: Color(0xff811a41),fontSize: 16)),
+                    style: TextStyle(color: Color(0xff811a41), fontSize: 16)),
               ),
               Container(
                 child: Padding(
@@ -105,9 +104,11 @@ class addItem extends State<additem> {
                             style: TextStyle(color: Color(0xff811a41)),
                             decoration: InputDecoration(
                                 enabledBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(color: Color(0xff811a41))),
+                                    borderSide:
+                                        BorderSide(color: Color(0xff811a41))),
                                 focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(color: Color(0xff811a41))),
+                                    borderSide:
+                                        BorderSide(color: Color(0xff811a41))),
                                 labelText: 'Original Price',
                                 labelStyle: TextStyle(
                                   color: Color(0xff811a41),
@@ -121,11 +122,14 @@ class addItem extends State<additem> {
                             style: TextStyle(color: Color(0xff811a41)),
                             decoration: InputDecoration(
                                 enabledBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(color: Color(0xff811a41))),
+                                    borderSide:
+                                        BorderSide(color: Color(0xff811a41))),
                                 focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(color: Color(0xff811a41))),
+                                    borderSide:
+                                        BorderSide(color: Color(0xff811a41))),
                                 labelText: 'Discount Price',
-                                labelStyle: TextStyle(color: Color(0xff811a41)))),
+                                labelStyle:
+                                    TextStyle(color: Color(0xff811a41)))),
                       ),
                     ],
                   ),
@@ -134,7 +138,7 @@ class addItem extends State<additem> {
               selectcategory(),
               checklist(),
               Padding(
-                padding: const EdgeInsets.only(top:10.0,bottom: 15.0),
+                padding: const EdgeInsets.only(top: 10.0, bottom: 15.0),
                 child: Container(
                     height: 50,
                     width: 150,
@@ -172,8 +176,8 @@ class _selectcategoryState extends State<selectcategory> {
         child: DropdownButtonHideUnderline(
           child: Container(
             child: DropdownButton(
-              hint: Text("Select Category",
-                  style: TextStyle(color: Color(0xff811a41))),
+                hint: Text("Select Category",
+                    style: TextStyle(color: Color(0xff811a41))),
                 dropdownColor: Colors.white,
                 value: _value,
                 items: [

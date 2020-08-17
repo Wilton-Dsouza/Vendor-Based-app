@@ -1,27 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:main_menu/homepage.dart';
-import 'package:main_menu/menuitem.dart';
-import 'package:main_menu/cashpage.dart';
-import 'package:main_menu/profilepage.dart';
-import 'package:main_menu/additem.dart';
+import 'package:login_app/screens/home/additem.dart';
+import 'package:login_app/screens/home/cashpage.dart';
+import 'package:login_app/screens/home/homepage.dart';
+import 'package:login_app/screens/home/menuitem.dart';
+import 'package:login_app/screens/home/profilepage.dart';
 
-void main() {
-  runApp(MaterialApp(
-    home: ManageScreen(),
-  ));
-}
-
-class ManageScreen extends StatefulWidget{
+class ManageScreen extends StatefulWidget {
   _ManageScreenState createState() => _ManageScreenState();
 }
 
-class _ManageScreenState extends State<ManageScreen>{
+class _ManageScreenState extends State<ManageScreen> {
   int navBarTracker = 0;
   final tabBody = [
     Menu(),
-    menuitems(),
-    cashpage(),
-    profile()
+    MenuItems(),
+    CashPage(),
+    Profile(),
   ];
 
   @override
@@ -34,7 +28,7 @@ class _ManageScreenState extends State<ManageScreen>{
           Navigator.push(
             context,
             MaterialPageRoute(builder: (context) {
-              return additem();
+              return AddItem();
             }),
           );
         },
@@ -46,7 +40,7 @@ class _ManageScreenState extends State<ManageScreen>{
           Navigator.push(
             context,
             MaterialPageRoute(builder: (context) {
-              return additem();
+              return AddItem();
             }),
           );
         },
@@ -58,7 +52,7 @@ class _ManageScreenState extends State<ManageScreen>{
           Navigator.push(
             context,
             MaterialPageRoute(builder: (context) {
-              return additem();
+              return AddItem();
             }),
           );
         },
@@ -70,7 +64,7 @@ class _ManageScreenState extends State<ManageScreen>{
           Navigator.push(
             context,
             MaterialPageRoute(builder: (context) {
-              return additem();
+              return AddItem();
             }),
           );
         },
@@ -128,5 +122,3 @@ class _ManageScreenState extends State<ManageScreen>{
     );
   }
 }
-
-

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:login_app/models/user.dart';
 import 'package:login_app/screens/authenticate/authenticate.dart';
-import 'package:login_app/screens/home/temp_home.dart';
+import 'package:login_app/screens/home/managescreen.dart';
+import 'package:login_app/screens/temp_home/temp_home.dart';
 import 'package:provider/provider.dart';
 
 class Wrapper extends StatelessWidget {
@@ -15,7 +16,7 @@ class Wrapper extends StatelessWidget {
     if (user == null) {
       return Authenticate();
     } else {
-      return TempHomePage();
+      return ManageScreen();
     }
   }
 }
