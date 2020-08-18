@@ -1,237 +1,328 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:login_app/models/user.dart';
+import 'package:login_app/services/database.dart';
+import 'package:login_app/services/storage.dart';
+import 'package:login_app/shared/loading.dart';
+import 'package:provider/provider.dart';
 
 class AddItem extends StatefulWidget {
   _AddItemState createState() => _AddItemState();
 }
 
 class _AddItemState extends State<AddItem> {
+  bool loading = false;
+
+  String dishName, description, category;
+  int originalPrice, discountedPrice;
+  bool specialDish;
+  File dishImage;
   int _value = 1;
+
+  bool _specialDishChecked = false;
+  int _categoryValue = null;
+
+  final picker = ImagePicker();
+
+  Future getImage() async {
+    var image = await picker.getImage(source: ImageSource.gallery);
+
+    setState(() {
+      dishImage = File(image.path);
+      print('Image Path: $dishImage');
+    });
+  }
+
+  final Storage _storage = Storage();
+
+  final _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor: Colors.white,
-        appBar: AppBar(
-          centerTitle: true,
-          elevation: 0.0,
-          backgroundColor: Colors.white,
-          title: Text(
-            'Add Item',
-            style: TextStyle(fontSize: 25, color: Colors.black),
-          ),
-        ),
-        body: SingleChildScrollView(
-          child: Column(
-            children: <Widget>[
-              Container(
-                child:
-                    Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                  Expanded(
-                    child: Column(
-                      children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.only(top: 20.0),
-                          child: Container(
-                            width: 150,
-                            height: 150,
-                            child: RaisedButton(
-                                onPressed: () {},
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(18.0),
-                                ),
-                                child: Center(
-                                  child: Icon(
-                                    Icons.camera_alt,
-                                    size: 40.0,
-                                    color: Color(0xFF811a41),
+    return loading
+        ? Loading()
+        : Scaffold(
+            backgroundColor: Colors.white,
+            appBar: AppBar(
+              centerTitle: true,
+              elevation: 0.0,
+              backgroundColor: Colors.white,
+              title: Text(
+                'Add Item',
+                style: TextStyle(fontSize: 25, color: Colors.black),
+              ),
+            ),
+            body: SingleChildScrollView(
+              child: Form(
+                key: _formKey,
+                child: Column(
+                  children: <Widget>[
+                    Container(
+                      child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Expanded(
+                              child: Column(
+                                children: <Widget>[
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 20.0),
+                                    child: Container(
+                                      width: 150,
+                                      height: 150,
+                                      child: RaisedButton(
+                                          onPressed: () {
+                                            getImage();
+                                          },
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(18.0),
+                                          ),
+                                          child: Center(
+                                            child: (dishImage != null)
+                                                ? Image.file(dishImage)
+                                                : Icon(
+                                                    Icons.camera_alt,
+                                                    size: 40.0,
+                                                    color: Color(0xFF811a41),
+                                                  ),
+                                          )),
+                                    ),
                                   ),
-                                )),
+                                ],
+                              ),
+                            )
+                          ]),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 15.0),
+                      child: Text('Insert Image',
+                          style: TextStyle(
+                              color: Color(0xff811a41), fontSize: 16)),
+                    ),
+                    Container(
+                      child: Padding(
+                        padding: const EdgeInsets.all(25.0),
+                        child: TextFormField(
+                          validator: (input) => input.isEmpty
+                              ? 'Please enter the name of the dish'
+                              : null,
+                          onChanged: (input) {
+                            dishName = input.trim();
+                          },
+                          style: TextStyle(color: Color(0xff811a41)),
+                          maxLines: 1,
+                          decoration: InputDecoration(
+                              enabledBorder: OutlineInputBorder(
+                                  borderSide:
+                                      BorderSide(color: Color(0xff811a41))),
+                              focusedBorder: OutlineInputBorder(
+                                  borderSide:
+                                      BorderSide(color: Color(0xff811a41))),
+                              border: OutlineInputBorder(),
+                              labelText: 'Name of the Dish',
+                              labelStyle: TextStyle(color: Color(0xff811a41))),
+                        ),
+                      ),
+                    ),
+                    Container(
+                      child: Padding(
+                        padding:
+                            const EdgeInsets.fromLTRB(25.0, 0.0, 25.0, 25.0),
+                        child: TextFormField(
+                          validator: (input) => input.isEmpty
+                              ? 'Please enter the description'
+                              : null,
+                          onChanged: (input) {
+                            description = input.trim();
+                          },
+                          style: TextStyle(color: Color(0xff811a41)),
+                          minLines: 5,
+                          maxLines: 5,
+                          obscureText: false,
+                          decoration: InputDecoration(
+                              enabledBorder: OutlineInputBorder(
+                                  borderSide:
+                                      BorderSide(color: Color(0xff811a41))),
+                              focusedBorder: OutlineInputBorder(
+                                  borderSide:
+                                      BorderSide(color: Color(0xff811a41))),
+                              labelText: 'Description',
+                              labelStyle: TextStyle(color: Color(0xff811a41))),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(25.0, 0.0, 25.0, 25.0),
+                      child: Container(
+                        child: new Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            new Flexible(
+                              child: new TextFormField(
+                                keyboardType: TextInputType.number,
+                                validator: (input) => input.isEmpty
+                                    ? 'Please enter the original price'
+                                    : null,
+                                onChanged: (input) {
+                                  originalPrice = int.parse(input);
+                                },
+                                style: TextStyle(color: Color(0xff811a41)),
+                                decoration: InputDecoration(
+                                  enabledBorder: OutlineInputBorder(
+                                      borderSide:
+                                          BorderSide(color: Color(0xff811a41))),
+                                  focusedBorder: OutlineInputBorder(
+                                      borderSide:
+                                          BorderSide(color: Color(0xff811a41))),
+                                  labelText: 'Original Price',
+                                  labelStyle: TextStyle(
+                                    color: Color(0xff811a41),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              width: 20.0,
+                            ),
+                            new Flexible(
+                              child: new TextFormField(
+                                  keyboardType: TextInputType.number,
+                                  validator: (input) => input.isEmpty
+                                      ? 'Please enter the discounted price'
+                                      : null,
+                                  onChanged: (input) {
+                                    discountedPrice = int.parse(input.trim());
+                                  },
+                                  style: TextStyle(color: Color(0xff811a41)),
+                                  decoration: InputDecoration(
+                                      enabledBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                              color: Color(0xff811a41))),
+                                      focusedBorder: OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                              color: Color(0xff811a41))),
+                                      labelText: 'Discount Price',
+                                      labelStyle:
+                                          TextStyle(color: Color(0xff811a41)))),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(5.0),
+                          border: Border.all(color: Color(0xff811a41))),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: DropdownButtonHideUnderline(
+                          child: Container(
+                            child: DropdownButton(
+                                hint: Text("Select Category",
+                                    style: TextStyle(color: Color(0xff811a41))),
+                                dropdownColor: Colors.white,
+                                value: _categoryValue,
+                                items: [
+                                  DropdownMenuItem(
+                                    child: Text("Starters",
+                                        style: TextStyle(
+                                            color: Color(0xff811a41))),
+                                    value: 1,
+                                  ),
+                                  DropdownMenuItem(
+                                    child: Text("Main Course",
+                                        style: TextStyle(
+                                            color: Color(0xff811a41))),
+                                    value: 2,
+                                  ),
+                                  DropdownMenuItem(
+                                      child: Text("Deserts",
+                                          style: TextStyle(
+                                              color: Color(0xff811a41))),
+                                      value: 3),
+                                  DropdownMenuItem(
+                                      child: Text("Beverages",
+                                          style: TextStyle(
+                                              color: Color(0xff811a41))),
+                                      value: 4)
+                                ],
+                                onChanged: (value) {
+                                  setState(() {
+                                    switch (value) {
+                                      case 1:
+                                        category = 'Starters';
+                                        break;
+                                      case 2:
+                                        category = 'Main Course';
+                                        break;
+                                      case 3:
+                                        category = 'Deserts';
+                                        break;
+                                      case 4:
+                                        category = 'Beverages';
+                                        break;
+                                      default:
+                                        category = 'Not Selected';
+                                    }
+                                    _categoryValue = value;
+                                  });
+                                }),
                           ),
                         ),
-                      ],
+                      ),
                     ),
-                  )
-                ]),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 15.0),
-                child: Text('Insert Image',
-                    style: TextStyle(color: Color(0xff811a41), fontSize: 16)),
-              ),
-              Container(
-                child: Padding(
-                  padding: const EdgeInsets.all(25.0),
-                  child: TextFormField(
-                    style: TextStyle(color: Color(0xff811a41)),
-                    maxLines: 1,
-                    obscureText: false,
-                    decoration: InputDecoration(
-                        enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Color(0xff811a41))),
-                        focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Color(0xff811a41))),
-                        border: OutlineInputBorder(),
-                        labelText: 'Name of the Dish',
-                        labelStyle: TextStyle(color: Color(0xff811a41))),
-                  ),
-                ),
-              ),
-              Container(
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(25.0, 0.0, 25.0, 25.0),
-                  child: TextFormField(
-                    style: TextStyle(color: Color(0xff811a41)),
-                    minLines: 5,
-                    maxLines: 5,
-                    obscureText: false,
-                    decoration: InputDecoration(
-                        enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Color(0xff811a41))),
-                        focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Color(0xff811a41))),
-                        labelText: 'Description',
-                        labelStyle: TextStyle(color: Color(0xff811a41))),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(25.0, 0.0, 25.0, 25.0),
-                child: Container(
-                  child: new Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      new Flexible(
-                        child: new TextFormField(
-                            style: TextStyle(color: Color(0xff811a41)),
-                            decoration: InputDecoration(
-                                enabledBorder: OutlineInputBorder(
-                                    borderSide:
-                                        BorderSide(color: Color(0xff811a41))),
-                                focusedBorder: OutlineInputBorder(
-                                    borderSide:
-                                        BorderSide(color: Color(0xff811a41))),
-                                labelText: 'Original Price',
-                                labelStyle: TextStyle(
-                                  color: Color(0xff811a41),
-                                ))),
-                      ),
-                      SizedBox(
-                        width: 20.0,
-                      ),
-                      new Flexible(
-                        child: new TextFormField(
-                            style: TextStyle(color: Color(0xff811a41)),
-                            decoration: InputDecoration(
-                                enabledBorder: OutlineInputBorder(
-                                    borderSide:
-                                        BorderSide(color: Color(0xff811a41))),
-                                focusedBorder: OutlineInputBorder(
-                                    borderSide:
-                                        BorderSide(color: Color(0xff811a41))),
-                                labelText: 'Discount Price',
-                                labelStyle:
-                                    TextStyle(color: Color(0xff811a41)))),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              selectcategory(),
-              checklist(),
-              Padding(
-                padding: const EdgeInsets.only(top: 10.0, bottom: 15.0),
-                child: Container(
-                    height: 50,
-                    width: 150,
-                    child: RaisedButton(
-                      textColor: Colors.white,
-                      color: Color(0xff811a41),
-                      onPressed: () {
-                        // Respond to button press
+                    CheckboxListTile(
+                      title: Text("Special Dish",
+                          style: TextStyle(color: Color(0xff811a41))),
+                      value: _specialDishChecked,
+                      onChanged: (value) {
+                        specialDish = value;
+                        setState(() {
+                          _specialDishChecked = value;
+                        });
                       },
-                      child: Text('Add Item'),
-                    )),
-              )
-            ],
-          ),
-        ));
-  }
-}
-
-class selectcategory extends StatefulWidget {
-  @override
-  _selectcategoryState createState() => _selectcategoryState();
-}
-
-class _selectcategoryState extends State<selectcategory> {
-  int _value = null;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(5.0),
-          border: Border.all(color: Color(0xff811a41))),
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: DropdownButtonHideUnderline(
-          child: Container(
-            child: DropdownButton(
-                hint: Text("Select Category",
-                    style: TextStyle(color: Color(0xff811a41))),
-                dropdownColor: Colors.white,
-                value: _value,
-                items: [
-                  DropdownMenuItem(
-                    child: Text("Starters",
-                        style: TextStyle(color: Color(0xff811a41))),
-                    value: 1,
-                  ),
-                  DropdownMenuItem(
-                    child: Text("Main Course",
-                        style: TextStyle(color: Color(0xff811a41))),
-                    value: 2,
-                  ),
-                  DropdownMenuItem(
-                      child: Text("Deserts",
-                          style: TextStyle(color: Color(0xff811a41))),
-                      value: 3),
-                  DropdownMenuItem(
-                      child: Text("Beverages",
-                          style: TextStyle(color: Color(0xff811a41))),
-                      value: 4)
-                ],
-                onChanged: (value) {
-                  setState(() {
-                    _value = value;
-                  });
-                }),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class checklist extends StatefulWidget {
-  @override
-  _checklistState createState() => _checklistState();
-}
-
-class _checklistState extends State<checklist> {
-  bool _checked = false;
-
-  @override
-  Widget build(BuildContext context) {
-    return (CheckboxListTile(
-      title: Text("Special Dish", style: TextStyle(color: Color(0xff811a41))),
-      value: _checked,
-      onChanged: (newValue) {
-        setState(() {
-          _checked = newValue;
-        });
-      },
-      controlAffinity: ListTileControlAffinity.leading,
-      activeColor: new Color(0xff811a41), //  <-- leading Checkbox
-    ));
+                      controlAffinity: ListTileControlAffinity.leading,
+                      activeColor:
+                          new Color(0xff811a41), //  <-- leading Checkbox
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 10.0, bottom: 15.0),
+                      child: Container(
+                        height: 50,
+                        width: 150,
+                        child: RaisedButton(
+                          textColor: Colors.white,
+                          color: Color(0xff811a41),
+                          onPressed: () async {
+                            // Respond to button press
+                            if (_formKey.currentState.validate()) {
+                              setState(() => loading = true);
+                              final user =
+                                  Provider.of<User>(context, listen: false);
+                              print(user.uid);
+                              await DatabaseService(uid: user.uid)
+                                  .updateRestaurantData(
+                                      dishName: dishName,
+                                      originalPrice: originalPrice,
+                                      discountedPrice: discountedPrice,
+                                      category: category,
+                                      specialDish: specialDish);
+                              await _storage.uploadDishPicture(
+                                  uid: user.uid,
+                                  imageFileName: dishName,
+                                  image: dishImage);
+                              Navigator.pop(context);
+                            }
+                          },
+                          child: Text('Add Item'),
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ));
   }
 }

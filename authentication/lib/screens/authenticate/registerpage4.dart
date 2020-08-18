@@ -1,5 +1,4 @@
 import 'dart:io';
-import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:login_app/models/user.dart';
@@ -7,7 +6,6 @@ import 'package:login_app/screens/wrapper.dart';
 import 'package:login_app/services/auth.dart';
 import 'package:login_app/services/storage.dart';
 import 'package:login_app/shared/loading.dart';
-import 'package:path/path.dart';
 import 'package:provider/provider.dart';
 
 class RegisterPage4 extends StatefulWidget {
@@ -342,35 +340,35 @@ class _RegisterPage4 extends State<RegisterPage4> {
                             final user =
                                 Provider.of<User>(context, listen: false);
                             print(user.uid);
-                            _storage.uploadPicture(
+                            _storage.uploadUserInfoPicture(
                                 uid: user.uid,
                                 imageFileName: 'shop_licence',
                                 image: widget.details['shop_licence']);
-                            _storage.uploadPicture(
+                            _storage.uploadUserInfoPicture(
                                 uid: user.uid,
                                 imageFileName: 'fssai_licence',
                                 image: widget.details['fssai_licence']);
-                            _storage.uploadPicture(
+                            _storage.uploadUserInfoPicture(
                                 uid: user.uid,
                                 imageFileName: 'logo',
                                 image: widget.details['logo']);
-                            _storage.uploadPicture(
+                            _storage.uploadUserInfoPicture(
                                 uid: user.uid,
                                 imageFileName: 'cover_picture',
                                 image: widget.details['cover_picture']);
-                            _storage.uploadPicture(
+                            _storage.uploadUserInfoPicture(
                                 uid: user.uid,
                                 imageFileName: 'restaurant_picture_1',
                                 image: widget.details['restaurant_picture_1']);
-                            _storage.uploadPicture(
+                            _storage.uploadUserInfoPicture(
                                 uid: user.uid,
                                 imageFileName: 'restaurant_picture_2',
                                 image: widget.details['restaurant_picture_2']);
-                            _storage.uploadPicture(
+                            _storage.uploadUserInfoPicture(
                                 uid: user.uid,
                                 imageFileName: 'restaurant_picture_3',
                                 image: widget.details['restaurant_picture_3']);
-                            _storage.uploadPicture(
+                            _storage.uploadUserInfoPicture(
                                 uid: user.uid,
                                 imageFileName: 'restaurant_picture_4',
                                 image: widget.details['restaurant_picture_4']);

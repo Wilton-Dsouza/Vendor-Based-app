@@ -1,11 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:login_app/services/auth.dart';
 
 class Profile extends StatefulWidget {
   _ProfileState createState() => _ProfileState();
 }
 
 class _ProfileState extends State<Profile> {
+  final AuthService _auth = AuthService();
   int selectedpositon = 0;
   // This widget is the root of your application.
   @override
@@ -142,23 +144,29 @@ class _ProfileState extends State<Profile> {
             indent: 15,
             endIndent: 15,
           ),
-          ListTile(
-            leading: Icon(
-              Icons.lock_open,
-              color: Colors.black,
-            ),
-            title: Text(
-              'Logout',
-              style: TextStyle(
+          GestureDetector(
+            onTap: () async {
+              await _auth.signOut(); //we dont have to return anything cause our
+              // stream will get null value when this is complete and take us to login page
+            },
+            child: ListTile(
+              leading: Icon(
+                Icons.lock_open,
                 color: Colors.black,
-                fontSize: 18.0,
-                fontWeight: FontWeight.bold,
               ),
-            ),
-            trailing: IconButton(
-              color: Colors.black,
-              icon: Icon(Icons.arrow_forward_ios),
-              iconSize: 17,
+              title: Text(
+                'Logout',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 18.0,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              trailing: IconButton(
+                color: Colors.black,
+                icon: Icon(Icons.arrow_forward_ios),
+                iconSize: 17,
+              ),
             ),
           ),
           Divider(

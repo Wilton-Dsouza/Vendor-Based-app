@@ -4,10 +4,17 @@ import 'package:login_app/models/userinfo.dart';
 
 class DatabaseService {
   final String uid;
+
   DatabaseService({this.uid});
+
   //firebase collection reference
   final CollectionReference userInfoCollection = Firestore.instance.collection(
-      'user_info'); //either creates to reference 'user_info' collection
+      'user_info'); //either creates or references 'user_info' collection
+
+//  final CollectionReference restaurantInfoCollection = Firestore.instance
+//      .collection('user_info')
+//      .document(uid)
+//      .collection('restaurant_info');
 
   Future updateUserData(
       {String restaurant_name,
@@ -30,6 +37,22 @@ class DatabaseService {
       'ifsc_code': ifsc_code,
       'account_holder_name': account_holder_name,
       'authorized': authorized
+    });
+  }
+
+  Future updateRestaurantData(
+      {String dishName,
+      int originalPrice,
+      int discountedPrice,
+      String category,
+      bool specialDish}) async {
+    CollectionReference restaurantInfoCollection =
+        userInfoCollection.document(uid).collection('dishes');
+    return await restaurantInfoCollection.document(dishName).setData({
+      'original_price': originalPrice,
+      'discounted_price': discountedPrice,
+      'category': category,
+      'special_dish': specialDish,
     });
   }
 
