@@ -28,7 +28,6 @@ class _AddItemState extends State<AddItem> {
 
   Future getImage() async {
     var image = await picker.getImage(source: ImageSource.gallery);
-
     setState(() {
       dishImage = File(image.path);
       print('Image Path: $dishImage');
@@ -71,23 +70,24 @@ class _AddItemState extends State<AddItem> {
                                     child: Container(
                                       width: 150,
                                       height: 150,
-                                      child: RaisedButton(
-                                          onPressed: () {
-                                            getImage();
-                                          },
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(18.0),
-                                          ),
-                                          child: Center(
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                            color: Color(0xffd3d3d3),
+                                            borderRadius: BorderRadius.all(Radius.circular(20))),
+                                        child: GestureDetector(
+                                            onTap: () {
+                                              getImage();
+                                            },
                                             child: (dishImage != null)
-                                                ? Image.file(dishImage)
+                                                ? ClipRRect(
+                                                borderRadius: BorderRadius.circular(20),
+                                                child: Image.file(dishImage,fit: BoxFit.fill,width: 150,))
                                                 : Icon(
                                                     Icons.camera_alt,
                                                     size: 40.0,
                                                     color: Color(0xFF811a41),
-                                                  ),
-                                          )),
+                                                  )),
+                                      ),
                                     ),
                                   ),
                                 ],
@@ -128,8 +128,7 @@ class _AddItemState extends State<AddItem> {
                     ),
                     Container(
                       child: Padding(
-                        padding:
-                            const EdgeInsets.fromLTRB(25.0, 0.0, 25.0, 25.0),
+                        padding: const EdgeInsets.fromLTRB(25.0, 0.0, 25.0, 25.0),
                         child: TextFormField(
                           validator: (input) => input.isEmpty
                               ? 'Please enter the description'
@@ -138,16 +137,16 @@ class _AddItemState extends State<AddItem> {
                             description = input.trim();
                           },
                           style: TextStyle(color: Color(0xff811a41)),
-                          minLines: 5,
                           maxLines: 5,
-                          obscureText: false,
+                          minLines: 5,
                           decoration: InputDecoration(
                               enabledBorder: OutlineInputBorder(
                                   borderSide:
-                                      BorderSide(color: Color(0xff811a41))),
+                                  BorderSide(color: Color(0xff811a41))),
                               focusedBorder: OutlineInputBorder(
                                   borderSide:
-                                      BorderSide(color: Color(0xff811a41))),
+                                  BorderSide(color: Color(0xff811a41))),
+                              border: OutlineInputBorder(),
                               labelText: 'Description',
                               labelStyle: TextStyle(color: Color(0xff811a41))),
                         ),
@@ -160,8 +159,7 @@ class _AddItemState extends State<AddItem> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
                             new Flexible(
-                              child: new TextFormField(
-                                keyboardType: TextInputType.number,
+                              child: TextFormField(
                                 validator: (input) => input.isEmpty
                                     ? 'Please enter the original price'
                                     : null,
@@ -169,43 +167,43 @@ class _AddItemState extends State<AddItem> {
                                   originalPrice = int.parse(input);
                                 },
                                 style: TextStyle(color: Color(0xff811a41)),
+                                maxLines: 1,
                                 decoration: InputDecoration(
-                                  enabledBorder: OutlineInputBorder(
-                                      borderSide:
-                                          BorderSide(color: Color(0xff811a41))),
-                                  focusedBorder: OutlineInputBorder(
-                                      borderSide:
-                                          BorderSide(color: Color(0xff811a41))),
-                                  labelText: 'Original Price',
-                                  labelStyle: TextStyle(
-                                    color: Color(0xff811a41),
-                                  ),
-                                ),
+                                    enabledBorder: OutlineInputBorder(
+                                        borderSide:
+                                        BorderSide(color: Color(0xff811a41))),
+                                    focusedBorder: OutlineInputBorder(
+                                        borderSide:
+                                        BorderSide(color: Color(0xff811a41))),
+                                    border: OutlineInputBorder(),
+                                    labelText: 'Original Price',
+                                    labelStyle: TextStyle(color: Color(0xff811a41))),
                               ),
                             ),
                             SizedBox(
                               width: 20.0,
                             ),
                             new Flexible(
-                              child: new TextFormField(
-                                  keyboardType: TextInputType.number,
-                                  validator: (input) => input.isEmpty
-                                      ? 'Please enter the discounted price'
-                                      : null,
-                                  onChanged: (input) {
-                                    discountedPrice = int.parse(input.trim());
-                                  },
-                                  style: TextStyle(color: Color(0xff811a41)),
-                                  decoration: InputDecoration(
-                                      enabledBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(
-                                              color: Color(0xff811a41))),
-                                      focusedBorder: OutlineInputBorder(
-                                          borderSide: BorderSide(
-                                              color: Color(0xff811a41))),
-                                      labelText: 'Discount Price',
-                                      labelStyle:
-                                          TextStyle(color: Color(0xff811a41)))),
+                              child: TextFormField(
+                                validator: (input) => input.isEmpty
+                                    ? 'Please enter the discount price'
+                                    : null,
+                                onChanged: (input) {
+                                  discountedPrice = int.parse(input);
+                                },
+                                style: TextStyle(color: Color(0xff811a41)),
+                                maxLines: 1,
+                                decoration: InputDecoration(
+                                    enabledBorder: OutlineInputBorder(
+                                        borderSide:
+                                        BorderSide(color: Color(0xff811a41))),
+                                    focusedBorder: OutlineInputBorder(
+                                        borderSide:
+                                        BorderSide(color: Color(0xff811a41))),
+                                    border: OutlineInputBorder(),
+                                    labelText: 'Discount Price',
+                                    labelStyle: TextStyle(color: Color(0xff811a41))),
+                              ),
                             ),
                           ],
                         ),

@@ -21,6 +21,7 @@ class _ManageScreenState extends State<ManageScreen> {
   @override
   Widget build(BuildContext context) {
     final tabFloatingButton = [
+      null,
       FloatingActionButton(
         backgroundColor: Color(0xff811a41),
         child: Icon(Icons.add, color: Colors.white),
@@ -33,50 +34,15 @@ class _ManageScreenState extends State<ManageScreen> {
           );
         },
       ),
-      FloatingActionButton(
-        backgroundColor: Color(0xff811a41),
-        child: Icon(Icons.add, color: Colors.white),
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) {
-              return AddItem();
-            }),
-          );
-        },
-      ),
-      FloatingActionButton(
-        backgroundColor: Color(0xff811a41),
-        child: Icon(Icons.add, color: Colors.white),
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) {
-              return AddItem();
-            }),
-          );
-        },
-      ),
-      FloatingActionButton(
-        backgroundColor: Color(0xff811a41),
-        child: Icon(Icons.add, color: Colors.white),
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) {
-              return AddItem();
-            }),
-          );
-        },
-      ),
+      null,
+      null
     ];
     return Scaffold(
       backgroundColor: Colors.white,
       body: tabBody[navBarTracker],
       floatingActionButton: tabFloatingButton[navBarTracker],
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomNavigationBar(
-        selectedItemColor: new Color(0xff811a41),
+        selectedItemColor: Colors.white,
         unselectedItemColor: Colors.grey,
         currentIndex: navBarTracker,
         onTap: (index) {
@@ -90,7 +56,7 @@ class _ManageScreenState extends State<ManageScreen> {
               Icons.home,
               size: 30,
             ),
-            backgroundColor: Colors.white,
+            backgroundColor: Color(0xff811a41),
             title: Text('Home'),
           ),
           BottomNavigationBarItem(
@@ -98,7 +64,7 @@ class _ManageScreenState extends State<ManageScreen> {
               Icons.restaurant_menu,
               size: 30,
             ),
-            backgroundColor: Colors.white,
+            backgroundColor: Color(0xff811a41),
             title: Text('Items'),
           ),
           BottomNavigationBarItem(
@@ -106,7 +72,7 @@ class _ManageScreenState extends State<ManageScreen> {
               Icons.attach_money,
               size: 30,
             ),
-            backgroundColor: Colors.white,
+            backgroundColor: Color(0xff811a41),
             title: Text('Business'),
           ),
           BottomNavigationBarItem(
@@ -114,7 +80,7 @@ class _ManageScreenState extends State<ManageScreen> {
               Icons.person,
               size: 30,
             ),
-            backgroundColor: Colors.white,
+            backgroundColor: Color(0xff811a41),
             title: Text('Account'),
           ),
         ],

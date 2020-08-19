@@ -9,6 +9,35 @@ class Profile extends StatefulWidget {
 class _ProfileState extends State<Profile> {
   final AuthService _auth = AuthService();
   int selectedpositon = 0;
+  void _showDialog() {
+    // flutter defined function
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        // return object of type Dialog
+        return AlertDialog(
+          title: new Text("Logout"),
+          content: new Text("Are you sure you want to Logout?"),
+          actions: <Widget>[
+            // usually buttons at the bottom of the dialog
+            FlatButton(
+              child: new Text("No",style: TextStyle(color: Color(0xff811a41)),),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+            FlatButton(
+              child: new Text("Yes",style: TextStyle(color: Color(0xff811a41)),),
+              onPressed: () async {
+                Navigator.of(context).pop();
+                await _auth.signOut();
+              },
+            ),
+          ],
+        );
+      },
+    );
+  }
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -144,9 +173,10 @@ class _ProfileState extends State<Profile> {
             indent: 15,
             endIndent: 15,
           ),
-          GestureDetector(
-            onTap: () async {
-              await _auth.signOut(); //we dont have to return anything cause our
+          FlatButton(
+            padding: EdgeInsets.all(0),
+            onPressed: ()  {
+              _showDialog(); //we dont have to return anything cause our
               // stream will get null value when this is complete and take us to login page
             },
             child: ListTile(
