@@ -106,7 +106,7 @@ class _ProfileState extends State<Profile> {
                 color: Colors.black,
               ),
               title: Text(
-                'My Details',
+                'Edit Profile',
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 18.0,
