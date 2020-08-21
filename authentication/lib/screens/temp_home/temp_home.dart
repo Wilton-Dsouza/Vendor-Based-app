@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:login_app/models/userinfo.dart';
+import 'package:login_app/models/dish_info.dart';
 import 'package:login_app/screens/temp_home/userlist.dart';
 import 'package:login_app/services/auth.dart';
 import 'package:login_app/services/database.dart';
@@ -11,10 +11,10 @@ class TempHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 //    return StreamProvider<QuerySnapshot>.value(
-    return StreamProvider<List<MyUserInfo>>.value(
+    return StreamProvider<List<MyDishInfo>>.value(
       //done to access the userInfo document within the widget StreamProvider
       value: DatabaseService()
-          .userInfo, //'userInfo' is  the Stream in database.dart
+          .dishInfo, //'userInfo' is  the Stream in database.dart
       child: Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(

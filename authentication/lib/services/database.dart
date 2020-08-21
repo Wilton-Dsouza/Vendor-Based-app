@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:login_app/models/user.dart';
-import 'package:login_app/models/userinfo.dart';
+import 'package:login_app/models/dish_info.dart';
 
 class DatabaseService {
   final String uid;
@@ -57,14 +57,17 @@ class DatabaseService {
   }
 
   // UserInfo from Snapshot
-  List<MyUserInfo> _brewListFromSnapshot(QuerySnapshot snapshot) {
+  List<MyDishInfo> _dishListFromSnapshot(QuerySnapshot snapshot) {
     return snapshot.documents.map((doc) {
       //map is used to iterate through(go through) the list of documents
-      return MyUserInfo(
-          name: doc.data['name'] ??
-              '', // will give '' if 'name' key doesnt exist in database
-          strength: doc.data['strength'] ?? 0,
-          sugars: doc.data['sugars'] ?? '0');
+      return MyDishInfo(
+        dishName: doc.toString(),
+        originalPrice: doc.data['original_price'] ??
+            0, // will give 0 if 'original_price' key doesnt exist in database
+        discountedPrice: doc.data['discounted_price'] ?? 0,
+        category: doc.data['category'] ?? '',
+        specialDish: doc.data['special_dish'] ?? false,
+      );
     }).toList(); //since it will return an iterable if we dont convert to list
   }
 
@@ -84,8 +87,12 @@ class DatabaseService {
 //}
   //changed to the below code for getting userinfo directly
 
-  Stream<List<MyUserInfo>> get userInfo {
-    return userInfoCollection.snapshots().map(_brewListFromSnapshot);
+  Stream<List<MyDishInfo>> get dishInfo {
+    return userInfoCollection
+        .document(uid)
+        .collection('dishes')
+        .snapshots()
+        .map(_dishListFromSnapshot);
   }
 
   //get user doc stream

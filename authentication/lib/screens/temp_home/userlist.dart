@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:login_app/models/userinfo.dart';
+import 'package:login_app/models/dish_info.dart';
 import 'package:provider/provider.dart';
 
 class UserList extends StatefulWidget {
@@ -11,11 +11,12 @@ class _UserListState extends State<UserList> {
   @override
   Widget build(BuildContext context) {
 //    final usersInfo = Provider.of<QuerySnapshot>(context);
-    final usersInfo = Provider.of<List<MyUserInfo>>(context) ?? [];
+    final usersInfo = Provider.of<List<MyDishInfo>>(context) ?? [];
     for (var user in usersInfo) {
-      print(user.name);
-      print(user.sugars);
-      print(user.strength);
+      print(user.dishName);
+      print(user.category);
+      print(user.originalPrice);
+      print(user.specialDish);
     }
 //    print(usersInfo);
 //    print(usersInfo.documents);
