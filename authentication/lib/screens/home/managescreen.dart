@@ -28,9 +28,7 @@ class _ManageScreenState extends State<ManageScreen> {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) {
-              return AddItem();
-            }),
+            MaterialPageRoute(builder: (context) => AddItem()),
           );
         },
       ),

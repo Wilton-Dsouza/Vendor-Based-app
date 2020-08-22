@@ -73,15 +73,22 @@ class _AddItemState extends State<AddItem> {
                                       child: Container(
                                         decoration: BoxDecoration(
                                             color: Color(0xffd3d3d3),
-                                            borderRadius: BorderRadius.all(Radius.circular(20))),
+                                            borderRadius: BorderRadius.all(
+                                                Radius.circular(20))),
                                         child: GestureDetector(
                                             onTap: () {
                                               getImage();
                                             },
                                             child: (dishImage != null)
                                                 ? ClipRRect(
-                                                borderRadius: BorderRadius.circular(20),
-                                                child: Image.file(dishImage,fit: BoxFit.fill,width: 150,))
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            20),
+                                                    child: Image.file(
+                                                      dishImage,
+                                                      fit: BoxFit.fill,
+                                                      width: 150,
+                                                    ))
                                                 : Icon(
                                                     Icons.camera_alt,
                                                     size: 40.0,
@@ -128,7 +135,8 @@ class _AddItemState extends State<AddItem> {
                     ),
                     Container(
                       child: Padding(
-                        padding: const EdgeInsets.fromLTRB(25.0, 0.0, 25.0, 25.0),
+                        padding:
+                            const EdgeInsets.fromLTRB(25.0, 0.0, 25.0, 25.0),
                         child: TextFormField(
                           validator: (input) => input.isEmpty
                               ? 'Please enter the description'
@@ -142,10 +150,10 @@ class _AddItemState extends State<AddItem> {
                           decoration: InputDecoration(
                               enabledBorder: OutlineInputBorder(
                                   borderSide:
-                                  BorderSide(color: Color(0xff811a41))),
+                                      BorderSide(color: Color(0xff811a41))),
                               focusedBorder: OutlineInputBorder(
                                   borderSide:
-                                  BorderSide(color: Color(0xff811a41))),
+                                      BorderSide(color: Color(0xff811a41))),
                               border: OutlineInputBorder(),
                               labelText: 'Description',
                               labelStyle: TextStyle(color: Color(0xff811a41))),
@@ -170,14 +178,15 @@ class _AddItemState extends State<AddItem> {
                                 maxLines: 1,
                                 decoration: InputDecoration(
                                     enabledBorder: OutlineInputBorder(
-                                        borderSide:
-                                        BorderSide(color: Color(0xff811a41))),
+                                        borderSide: BorderSide(
+                                            color: Color(0xff811a41))),
                                     focusedBorder: OutlineInputBorder(
-                                        borderSide:
-                                        BorderSide(color: Color(0xff811a41))),
+                                        borderSide: BorderSide(
+                                            color: Color(0xff811a41))),
                                     border: OutlineInputBorder(),
                                     labelText: 'Original Price',
-                                    labelStyle: TextStyle(color: Color(0xff811a41))),
+                                    labelStyle:
+                                        TextStyle(color: Color(0xff811a41))),
                               ),
                             ),
                             SizedBox(
@@ -195,14 +204,15 @@ class _AddItemState extends State<AddItem> {
                                 maxLines: 1,
                                 decoration: InputDecoration(
                                     enabledBorder: OutlineInputBorder(
-                                        borderSide:
-                                        BorderSide(color: Color(0xff811a41))),
+                                        borderSide: BorderSide(
+                                            color: Color(0xff811a41))),
                                     focusedBorder: OutlineInputBorder(
-                                        borderSide:
-                                        BorderSide(color: Color(0xff811a41))),
+                                        borderSide: BorderSide(
+                                            color: Color(0xff811a41))),
                                     border: OutlineInputBorder(),
                                     labelText: 'Discount Price',
-                                    labelStyle: TextStyle(color: Color(0xff811a41))),
+                                    labelStyle:
+                                        TextStyle(color: Color(0xff811a41))),
                               ),
                             ),
                           ],
@@ -307,10 +317,12 @@ class _AddItemState extends State<AddItem> {
                                       discountedPrice: discountedPrice,
                                       category: category,
                                       specialDish: specialDish);
+                              print('Restaurant Data Updated');
                               await _storage.uploadDishPicture(
                                   uid: user.uid,
                                   imageFileName: dishName,
                                   image: dishImage);
+                              print('Dish Picture Updated');
                               Navigator.pop(context);
                             }
                           },

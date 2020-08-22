@@ -48,12 +48,14 @@ class DatabaseService {
       bool specialDish}) async {
     CollectionReference restaurantInfoCollection =
         userInfoCollection.document(uid).collection('dishes');
+    print('3');
     return await restaurantInfoCollection.document(dishName).setData({
       'original_price': originalPrice,
       'discounted_price': discountedPrice,
       'category': category,
       'special_dish': specialDish,
     });
+    print('4');
   }
 
   // UserInfo from Snapshot
