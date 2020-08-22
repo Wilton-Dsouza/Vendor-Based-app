@@ -111,7 +111,7 @@ class _AddItemState extends State<AddItem> {
                     Container(
                       child: Padding(
                         padding: const EdgeInsets.all(25.0),
-                        child: TextFormField(
+                        child: new TextFormField(
                           validator: (input) => input.isEmpty
                               ? 'Please enter the name of the dish'
                               : null,
@@ -119,7 +119,6 @@ class _AddItemState extends State<AddItem> {
                             dishName = input.trim();
                           },
                           style: TextStyle(color: Color(0xff811a41)),
-                          maxLines: 1,
                           decoration: InputDecoration(
                               enabledBorder: OutlineInputBorder(
                                   borderSide:
@@ -137,7 +136,7 @@ class _AddItemState extends State<AddItem> {
                       child: Padding(
                         padding:
                             const EdgeInsets.fromLTRB(25.0, 0.0, 25.0, 25.0),
-                        child: TextFormField(
+                        child: new TextFormField(
                           validator: (input) => input.isEmpty
                               ? 'Please enter the description'
                               : null,
@@ -167,7 +166,8 @@ class _AddItemState extends State<AddItem> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
                             new Flexible(
-                              child: TextFormField(
+                              child:new TextFormField(
+                                keyboardType: TextInputType.number,
                                 validator: (input) => input.isEmpty
                                     ? 'Please enter the original price'
                                     : null,
@@ -175,7 +175,6 @@ class _AddItemState extends State<AddItem> {
                                   originalPrice = int.parse(input);
                                 },
                                 style: TextStyle(color: Color(0xff811a41)),
-                                maxLines: 1,
                                 decoration: InputDecoration(
                                     enabledBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
@@ -193,7 +192,8 @@ class _AddItemState extends State<AddItem> {
                               width: 20.0,
                             ),
                             new Flexible(
-                              child: TextFormField(
+                              child:new TextFormField(
+                                keyboardType: TextInputType.number,
                                 validator: (input) => input.isEmpty
                                     ? 'Please enter the discount price'
                                     : null,
@@ -201,7 +201,6 @@ class _AddItemState extends State<AddItem> {
                                   discountedPrice = int.parse(input);
                                 },
                                 style: TextStyle(color: Color(0xff811a41)),
-                                maxLines: 1,
                                 decoration: InputDecoration(
                                     enabledBorder: OutlineInputBorder(
                                         borderSide: BorderSide(
