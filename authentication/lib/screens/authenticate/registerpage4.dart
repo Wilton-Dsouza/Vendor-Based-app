@@ -46,7 +46,7 @@ class _RegisterPage4 extends State<RegisterPage4> {
                       child: Column(
                         children: <Widget>[
                           Padding(
-                            padding: const EdgeInsets.only(top:15.0),
+                            padding: const EdgeInsets.only(top: 15.0),
                             child: Row(
                               children: <Widget>[
                                 GestureDetector(
@@ -72,7 +72,8 @@ class _RegisterPage4 extends State<RegisterPage4> {
                                     child: Text(
                                   'Upload Pictures',
                                   style: TextStyle(
-                                      fontSize: 25, fontWeight: FontWeight.bold),
+                                      fontSize: 25,
+                                      fontWeight: FontWeight.bold),
                                 )),
                               ),
                             ],
@@ -80,7 +81,8 @@ class _RegisterPage4 extends State<RegisterPage4> {
                           Row(
                             children: <Widget>[
                               Padding(
-                                padding: const EdgeInsets.only(top: 30, left: 20),
+                                padding:
+                                    const EdgeInsets.only(top: 30, left: 20),
                                 child: Align(
                                   child: Text(
                                     'Logo',
@@ -95,21 +97,30 @@ class _RegisterPage4 extends State<RegisterPage4> {
                               Column(
                                 children: <Widget>[
                                   Padding(
-                                    padding: const EdgeInsets.only(top: 10, left: 20),
+                                    padding: const EdgeInsets.only(
+                                        top: 10, left: 20),
                                     child: Container(
                                       width: 170,
                                       height: 150,
                                       child: Container(
                                         decoration: BoxDecoration(
                                             color: Color(0xffd3d3d3),
-                                            borderRadius: BorderRadius.all(Radius.circular(20))),
+                                            borderRadius: BorderRadius.all(
+                                                Radius.circular(20))),
                                         child: GestureDetector(
                                           onTap: () {
                                             getImage('logo');
                                           },
-                                          child: (widget.details['logo'] != null)
-                                              ? ClipRRect(borderRadius: BorderRadius.circular(20),
-                                              child: Image.file(widget.details['logo'],fit: BoxFit.fill,width: 170,))
+                                          child: (widget.details['logo'] !=
+                                                  null)
+                                              ? ClipRRect(
+                                                  borderRadius:
+                                                      BorderRadius.circular(20),
+                                                  child: Image.file(
+                                                    widget.details['logo'],
+                                                    fit: BoxFit.fill,
+                                                    width: 170,
+                                                  ))
                                               : Icon(
                                                   Icons.camera_alt,
                                                   size: 40.0,
@@ -136,7 +147,8 @@ class _RegisterPage4 extends State<RegisterPage4> {
                           Row(
                             children: <Widget>[
                               Padding(
-                                padding: const EdgeInsets.only(top: 30, left: 20),
+                                padding:
+                                    const EdgeInsets.only(top: 30, left: 20),
                                 child: Align(
                                   child: Text(
                                     'Cover Picture',
@@ -151,24 +163,33 @@ class _RegisterPage4 extends State<RegisterPage4> {
                               Column(
                                 children: <Widget>[
                                   Padding(
-                                    padding: const EdgeInsets.only(top: 10, left: 20),
+                                    padding: const EdgeInsets.only(
+                                        top: 10, left: 20),
                                     child: Container(
                                       width: 170,
                                       height: 150,
                                       child: Container(
                                         decoration: BoxDecoration(
                                             color: Color(0xffd3d3d3),
-                                            borderRadius: BorderRadius.all(Radius.circular(20))),
+                                            borderRadius: BorderRadius.all(
+                                                Radius.circular(20))),
                                         child: GestureDetector(
                                           onTap: () {
                                             getImage('cover_picture');
                                           },
-                                          child: (widget.details['cover_picture'] != null)
+                                          child: (widget.details[
+                                                      'cover_picture'] !=
+                                                  null)
                                               ? ClipRRect(
-                                            borderRadius: BorderRadius.circular(20),
-                                            child: Image.file(
-                                                    widget.details['cover_picture'],fit: BoxFit.fill,width: 170,),
-                                              )
+                                                  borderRadius:
+                                                      BorderRadius.circular(20),
+                                                  child: Image.file(
+                                                    widget.details[
+                                                        'cover_picture'],
+                                                    fit: BoxFit.fill,
+                                                    width: 170,
+                                                  ),
+                                                )
                                               : Icon(
                                                   Icons.camera_alt,
                                                   size: 40.0,
@@ -184,7 +205,8 @@ class _RegisterPage4 extends State<RegisterPage4> {
                                 children: <Widget>[
                                   Padding(
                                     padding: const EdgeInsets.only(left: 20),
-                                    child: (widget.details['cover_picture'] != null)
+                                    child: (widget.details['cover_picture'] !=
+                                            null)
                                         ? null
                                         : Text('(Click here to add Image)'),
                                   )
@@ -214,19 +236,25 @@ class _RegisterPage4 extends State<RegisterPage4> {
                                       child: Container(
                                         decoration: BoxDecoration(
                                             color: Color(0xffd3d3d3),
-                                            borderRadius: BorderRadius.all(Radius.circular(20))),
+                                            borderRadius: BorderRadius.all(
+                                                Radius.circular(20))),
                                         child: GestureDetector(
                                           onTap: () {
                                             getImage('restaurant_picture_1');
                                           },
-                                          child: (widget
-                                                      .details['restaurant_picture_1'] !=
+                                          child: (widget.details[
+                                                      'restaurant_picture_1'] !=
                                                   null)
                                               ? ClipRRect(
-                                            borderRadius: BorderRadius.circular(20),
-                                            child: Image.file(
-                                                    widget.details['restaurant_picture_1'],fit: BoxFit.fill,width: 170,),
-                                              )
+                                                  borderRadius:
+                                                      BorderRadius.circular(20),
+                                                  child: Image.file(
+                                                    widget.details[
+                                                        'restaurant_picture_1'],
+                                                    fit: BoxFit.fill,
+                                                    width: 170,
+                                                  ),
+                                                )
                                               : Icon(
                                                   Icons.camera_alt,
                                                   size: 40.0,
@@ -249,19 +277,25 @@ class _RegisterPage4 extends State<RegisterPage4> {
                                       child: Container(
                                         decoration: BoxDecoration(
                                             color: Color(0xffd3d3d3),
-                                            borderRadius: BorderRadius.all(Radius.circular(20))),
+                                            borderRadius: BorderRadius.all(
+                                                Radius.circular(20))),
                                         child: GestureDetector(
                                           onTap: () {
                                             getImage('restaurant_picture_2');
                                           },
-                                          child: (widget
-                                                      .details['restaurant_picture_2'] !=
+                                          child: (widget.details[
+                                                      'restaurant_picture_2'] !=
                                                   null)
                                               ? ClipRRect(
-                                            borderRadius: BorderRadius.circular(20),
-                                            child: Image.file(
-                                                    widget.details['restaurant_picture_2'],fit: BoxFit.fill,width: 170,),
-                                              )
+                                                  borderRadius:
+                                                      BorderRadius.circular(20),
+                                                  child: Image.file(
+                                                    widget.details[
+                                                        'restaurant_picture_2'],
+                                                    fit: BoxFit.fill,
+                                                    width: 170,
+                                                  ),
+                                                )
                                               : Icon(
                                                   Icons.camera_alt,
                                                   size: 40.0,
@@ -288,19 +322,25 @@ class _RegisterPage4 extends State<RegisterPage4> {
                                       child: Container(
                                         decoration: BoxDecoration(
                                             color: Color(0xffd3d3d3),
-                                            borderRadius: BorderRadius.all(Radius.circular(20))),
+                                            borderRadius: BorderRadius.all(
+                                                Radius.circular(20))),
                                         child: GestureDetector(
                                           onTap: () {
                                             getImage('restaurant_picture_3');
                                           },
-                                          child: (widget
-                                                      .details['restaurant_picture_3'] !=
+                                          child: (widget.details[
+                                                      'restaurant_picture_3'] !=
                                                   null)
                                               ? ClipRRect(
-                                            borderRadius: BorderRadius.circular(20),
-                                            child: Image.file(
-                                                    widget.details['restaurant_picture_3'],fit: BoxFit.fill,width: 170,),
-                                              )
+                                                  borderRadius:
+                                                      BorderRadius.circular(20),
+                                                  child: Image.file(
+                                                    widget.details[
+                                                        'restaurant_picture_3'],
+                                                    fit: BoxFit.fill,
+                                                    width: 170,
+                                                  ),
+                                                )
                                               : Icon(
                                                   Icons.camera_alt,
                                                   size: 40.0,
@@ -323,19 +363,25 @@ class _RegisterPage4 extends State<RegisterPage4> {
                                       child: Container(
                                         decoration: BoxDecoration(
                                             color: Color(0xffd3d3d3),
-                                            borderRadius: BorderRadius.all(Radius.circular(20))),
+                                            borderRadius: BorderRadius.all(
+                                                Radius.circular(20))),
                                         child: GestureDetector(
                                           onTap: () {
                                             getImage('restaurant_picture_4');
                                           },
-                                          child: (widget
-                                                      .details['restaurant_picture_4'] !=
+                                          child: (widget.details[
+                                                      'restaurant_picture_4'] !=
                                                   null)
                                               ? ClipRRect(
-                                            borderRadius: BorderRadius.circular(20),
-                                                child: Image.file(
-                                                    widget.details['restaurant_picture_4'],fit: BoxFit.fill,width: 170,),
-                                              )
+                                                  borderRadius:
+                                                      BorderRadius.circular(20),
+                                                  child: Image.file(
+                                                    widget.details[
+                                                        'restaurant_picture_4'],
+                                                    fit: BoxFit.fill,
+                                                    width: 170,
+                                                  ),
+                                                )
                                               : Icon(
                                                   Icons.camera_alt,
                                                   size: 40.0,
@@ -350,7 +396,8 @@ class _RegisterPage4 extends State<RegisterPage4> {
                             ],
                           ),
                           Padding(
-                            padding: const EdgeInsets.fromLTRB(20.0, 25.0, 20.0, 10.0),
+                            padding: const EdgeInsets.fromLTRB(
+                                20.0, 25.0, 20.0, 10.0),
                             child: Container(
                               width: 150,
                               height: 50,
@@ -370,17 +417,20 @@ class _RegisterPage4 extends State<RegisterPage4> {
                                           restaurant_name:
                                               widget.details['restaurant_name'],
                                           location: widget.details['location'],
-                                          establishment_type:
-                                              widget.details['establishment_type'],
+                                          establishment_type: widget
+                                              .details['establishment_type'],
                                           phone_number:
                                               widget.details['phone_number'],
-                                          gst_or_pan: widget.details['gst_or_pan'],
+                                          gst_or_pan:
+                                              widget.details['gst_or_pan'],
                                           account_number:
                                               widget.details['account_number'],
-                                          ifsc_code: widget.details['ifsc_code'],
-                                          account_holder_name:
-                                              widget.details['account_holder_name'],
-                                          authorized: widget.details['authorized']);
+                                          ifsc_code:
+                                              widget.details['ifsc_code'],
+                                          account_holder_name: widget
+                                              .details['account_holder_name'],
+                                          authorized:
+                                              widget.details['authorized']);
                                   if (result == null) {
                                     setState(() {
                                       loading = false;
@@ -394,8 +444,8 @@ class _RegisterPage4 extends State<RegisterPage4> {
                                           builder: (context) => Wrapper()),
                                       (route) => false);
 
-                                  final user =
-                                      Provider.of<User>(context, listen: false);
+                                  final user = Provider.of<MyUser>(context,
+                                      listen: false);
                                   print(user.uid);
                                   _storage.uploadUserInfoPicture(
                                       uid: user.uid,
@@ -416,23 +466,27 @@ class _RegisterPage4 extends State<RegisterPage4> {
                                   _storage.uploadUserInfoPicture(
                                       uid: user.uid,
                                       imageFileName: 'restaurant_picture_1',
-                                      image: widget.details['restaurant_picture_1']);
+                                      image: widget
+                                          .details['restaurant_picture_1']);
                                   _storage.uploadUserInfoPicture(
                                       uid: user.uid,
                                       imageFileName: 'restaurant_picture_2',
-                                      image: widget.details['restaurant_picture_2']);
+                                      image: widget
+                                          .details['restaurant_picture_2']);
                                   _storage.uploadUserInfoPicture(
                                       uid: user.uid,
                                       imageFileName: 'restaurant_picture_3',
-                                      image: widget.details['restaurant_picture_3']);
+                                      image: widget
+                                          .details['restaurant_picture_3']);
                                   _storage.uploadUserInfoPicture(
                                       uid: user.uid,
                                       imageFileName: 'restaurant_picture_4',
-                                      image: widget.details['restaurant_picture_4']);
+                                      image: widget
+                                          .details['restaurant_picture_4']);
                                 },
                                 child: const Text('Done',
-                                    style:
-                                        TextStyle(fontSize: 20, color: Colors.white)),
+                                    style: TextStyle(
+                                        fontSize: 20, color: Colors.white)),
                               ),
                             ),
                           ),

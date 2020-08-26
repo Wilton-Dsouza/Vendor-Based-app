@@ -7,8 +7,8 @@ class AuthService {
 
   //create user object based on FirebaseUser (check user.dart)
   //return type is of User class which is defined in user.dart
-  User _userFromFirebaseUser(FirebaseUser user) {
-    return user != null ? User(uid: user.uid) : null;
+  MyUser _userFromFirebaseUser(FirebaseUser user) {
+    return user != null ? MyUser(uid: user.uid) : null;
   }
 
   //auth change user stream (used to keep track whether the user
@@ -18,7 +18,7 @@ class AuthService {
 //  }
   //the above code returns FirebaseUser but we want the User instance
   //defined by us. So:-
-  Stream<User> get user {
+  Stream<MyUser> get user {
     //will return User object if user signs in and null if user signs out
     return _auth.onAuthStateChanged
 //        .map((FirebaseUser user) => _userFromFirebaseUser(user));

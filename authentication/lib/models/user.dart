@@ -1,8 +1,8 @@
 //this is used to just get the uid of FireBaseUser
-class User {
+class MyUser {
   final String uid;
 
-  User({this.uid});
+  MyUser({this.uid});
 }
 
 class UserData {

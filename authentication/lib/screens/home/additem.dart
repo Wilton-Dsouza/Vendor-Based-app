@@ -166,7 +166,7 @@ class _AddItemState extends State<AddItem> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
                             new Flexible(
-                              child:new TextFormField(
+                              child: new TextFormField(
                                 keyboardType: TextInputType.number,
                                 validator: (input) => input.isEmpty
                                     ? 'Please enter the original price'
@@ -192,7 +192,7 @@ class _AddItemState extends State<AddItem> {
                               width: 20.0,
                             ),
                             new Flexible(
-                              child:new TextFormField(
+                              child: new TextFormField(
                                 keyboardType: TextInputType.number,
                                 validator: (input) => input.isEmpty
                                     ? 'Please enter the discount price'
@@ -307,7 +307,7 @@ class _AddItemState extends State<AddItem> {
                             if (_formKey.currentState.validate()) {
                               setState(() => loading = true);
                               final user =
-                                  Provider.of<User>(context, listen: false);
+                                  Provider.of<MyUser>(context, listen: false);
                               print(user.uid);
                               await DatabaseService(uid: user.uid)
                                   .updateRestaurantData(

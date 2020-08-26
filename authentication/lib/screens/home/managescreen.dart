@@ -4,6 +4,7 @@ import 'package:login_app/screens/home/cashpage.dart';
 import 'package:login_app/screens/home/homepage.dart';
 import 'package:login_app/screens/home/menuitem.dart';
 import 'package:login_app/screens/home/profilepage.dart';
+import 'package:login_app/screens/temp_home/temp_home.dart';
 
 class ManageScreen extends StatefulWidget {
   _ManageScreenState createState() => _ManageScreenState();
@@ -14,7 +15,8 @@ class _ManageScreenState extends State<ManageScreen> {
   final tabBody = [
     Menu(),
     MenuItems(),
-    CashPage(),
+//    CashPage(),
+    TempHomePage(),
     Profile(),
   ];
 

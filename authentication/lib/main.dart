@@ -11,7 +11,7 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return StreamProvider<User>.value(
+    return StreamProvider<MyUser>.value(
       //for listening to stream
       value: AuthService().user, //'user' is in 20th line of auth.dart
       child: MaterialApp(

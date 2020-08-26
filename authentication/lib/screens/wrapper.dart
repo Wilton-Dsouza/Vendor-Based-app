@@ -9,7 +9,8 @@ class Wrapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //this registers the user stream (User object(signed in) or null(signed out))
-    final user = Provider.of<User>(context); //this 'user' variable is different
+    final user =
+        Provider.of<MyUser>(context); //this 'user' variable is different
     print(user);
 
     //return either home or login(authenticate) page
