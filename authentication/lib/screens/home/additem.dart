@@ -233,42 +233,74 @@ class _AddItemState extends State<AddItem> {
                                 value: _categoryValue,
                                 items: [
                                   DropdownMenuItem(
-                                    child: Text("Starters",
+                                    child: Text("Breakfast",
                                         style: TextStyle(
                                             color: Color(0xff811a41))),
                                     value: 1,
                                   ),
                                   DropdownMenuItem(
-                                    child: Text("Main Course",
+                                    child: Text("Vegan",
                                         style: TextStyle(
                                             color: Color(0xff811a41))),
                                     value: 2,
                                   ),
                                   DropdownMenuItem(
-                                      child: Text("Deserts",
+                                      child: Text("Pizza",
                                           style: TextStyle(
                                               color: Color(0xff811a41))),
                                       value: 3),
                                   DropdownMenuItem(
-                                      child: Text("Beverages",
+                                      child: Text("Juice",
                                           style: TextStyle(
                                               color: Color(0xff811a41))),
-                                      value: 4)
+                                      value: 4),
+                                  DropdownMenuItem(
+                                      child: Text("Ice Cream",
+                                          style: TextStyle(
+                                              color: Color(0xff811a41))),
+                                      value:5),
+                                  DropdownMenuItem(
+                                      child: Text("Healthy",
+                                          style: TextStyle(
+                                              color: Color(0xff811a41))),
+                                      value: 6),
+                                  DropdownMenuItem(
+                                      child: Text("Chinese",
+                                          style: TextStyle(
+                                              color: Color(0xff811a41))),
+                                      value: 7),
+                                  DropdownMenuItem(
+                                      child: Text("Deserts",
+                                          style: TextStyle(
+                                              color: Color(0xff811a41))),
+                                      value: 8),
                                 ],
                                 onChanged: (value) {
                                   setState(() {
                                     switch (value) {
                                       case 1:
-                                        category = 'Starters';
+                                        category = 'Breakfast';
                                         break;
                                       case 2:
-                                        category = 'Main Course';
+                                        category = 'Vegan';
                                         break;
                                       case 3:
-                                        category = 'Deserts';
+                                        category = 'Pizza';
                                         break;
                                       case 4:
-                                        category = 'Beverages';
+                                        category = 'Juice';
+                                        break;
+                                      case 5:
+                                        category = 'Ice Cream';
+                                        break;
+                                      case 6:
+                                        category = 'Healthy';
+                                        break;
+                                      case 7:
+                                        category = 'Chinese';
+                                        break;
+                                      case 8:
+                                        category = 'Deserts';
                                         break;
                                       default:
                                         category = 'Not Selected';

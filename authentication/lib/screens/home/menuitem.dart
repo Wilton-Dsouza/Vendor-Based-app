@@ -8,7 +8,7 @@ class _MenuItemsState extends State<MenuItems> {
   int selectedpositon = 0;
   bool isSwitched1 = false;
   bool isSwitched2 = true;
-  final tabs = ['Soup', 'Starters', 'Rice', 'Beverage', 'Desert'];
+  final tabs = ['Breakfast', 'Vegan', 'Pizza', 'Juice', 'Ice Cream','Healthy','Chinese','Deserts'];
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -623,6 +623,450 @@ class _MenuItemsState extends State<MenuItems> {
                           onChanged: (value) {
                             setState(() {
                               isSwitched2 = value;
+                            });
+                          },
+                          activeColor: Color(0xff811a41),
+                        ),
+                        isThreeLine: true,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Padding(
+            // Beverages
+            padding: const EdgeInsets.only(top: 10.0),
+            child: ListView(
+              children: <Widget>[
+                Container(
+                  height: 110,
+                  width: 300,
+                  child: Card(
+                    elevation: 8,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Center(
+                      child: ListTile(
+                        leading: ClipRRect(
+                          borderRadius: BorderRadius.circular(15.0),
+                          child: Container(
+                            width: 100,
+                            height: 200,
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                  image: NetworkImage(
+                                      'https://images.unsplash.com/photo-1551024601-bec78aea704b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80'),
+                                  fit: BoxFit.fill),
+                            ),
+                          ),
+                        ),
+                        title: Text(
+                          "Donuts",
+                          style: TextStyle(fontSize: 17),
+                        ),
+                        subtitle: Wrap(
+                          children: <Widget>[
+                            Padding(
+                              padding: const EdgeInsets.only(top: 5.0),
+                              child: Row(
+                                children: <Widget>[
+                                  IconTheme(
+                                    data: IconThemeData(
+                                      color: Colors.amber,
+                                      size: 22,
+                                    ),
+                                    child: StarDisplay(value: 4),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 10.0),
+                              child: Row(
+                                children: <Widget>[
+                                  Text(
+                                    '₹ 2000',
+                                    style: TextStyle(fontSize: 16),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                        trailing: Switch(
+                          value: isSwitched2,
+                          onChanged: (value) {
+                            setState(() {
+                              isSwitched2 = value;
+                            });
+                          },
+                          activeColor: Color(0xff811a41),
+                        ),
+                        isThreeLine: true,
+                      ),
+                    ),
+                  ),
+                ),
+                Container(
+                  height: 110,
+                  width: 300,
+                  child: Card(
+                    elevation: 8,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Center(
+                      child: ListTile(
+                        leading: ClipRRect(
+                          borderRadius: BorderRadius.circular(15.0),
+                          child: Container(
+                            width: 100,
+                            height: 200,
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                  image: NetworkImage(
+                                      'https://realfood.tesco.com/media/images/RFO-1400x919-classic-chocolate-mousse-69ef9c9c-5bfb-4750-80e1-31aafbd80821-0-1400x919.jpg'),
+                                  fit: BoxFit.fill),
+                            ),
+                          ),
+                        ),
+                        title: Text(
+                          "Chocolate Mousse",
+                          style: TextStyle(fontSize: 17),
+                        ),
+                        subtitle: Wrap(
+                          children: <Widget>[
+                            Padding(
+                              padding: const EdgeInsets.only(top: 5.0),
+                              child: Row(
+                                children: <Widget>[
+                                  IconTheme(
+                                    data: IconThemeData(
+                                      color: Colors.amber,
+                                      size: 22,
+                                    ),
+                                    child: StarDisplay(value: 4),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 10.0),
+                              child: Row(
+                                children: <Widget>[
+                                  Text(
+                                    '₹ 2500',
+                                    style: TextStyle(fontSize: 16),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                        trailing: Switch(
+                          value: isSwitched1,
+                          onChanged: (value) {
+                            setState(() {
+                              isSwitched1 = value;
+                            });
+                          },
+                          activeColor: Color(0xff811a41),
+                        ),
+                        isThreeLine: true,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Padding(
+            // Beverages
+            padding: const EdgeInsets.only(top: 10.0),
+            child: ListView(
+              children: <Widget>[
+                Container(
+                  height: 110,
+                  width: 300,
+                  child: Card(
+                    elevation: 8,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Center(
+                      child: ListTile(
+                        leading: ClipRRect(
+                          borderRadius: BorderRadius.circular(15.0),
+                          child: Container(
+                            width: 100,
+                            height: 200,
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                  image: NetworkImage(
+                                      'https://images.unsplash.com/photo-1551024601-bec78aea704b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80'),
+                                  fit: BoxFit.fill),
+                            ),
+                          ),
+                        ),
+                        title: Text(
+                          "Donuts",
+                          style: TextStyle(fontSize: 17),
+                        ),
+                        subtitle: Wrap(
+                          children: <Widget>[
+                            Padding(
+                              padding: const EdgeInsets.only(top: 5.0),
+                              child: Row(
+                                children: <Widget>[
+                                  IconTheme(
+                                    data: IconThemeData(
+                                      color: Colors.amber,
+                                      size: 22,
+                                    ),
+                                    child: StarDisplay(value: 4),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 10.0),
+                              child: Row(
+                                children: <Widget>[
+                                  Text(
+                                    '₹ 2000',
+                                    style: TextStyle(fontSize: 16),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                        trailing: Switch(
+                          value: isSwitched2,
+                          onChanged: (value) {
+                            setState(() {
+                              isSwitched2 = value;
+                            });
+                          },
+                          activeColor: Color(0xff811a41),
+                        ),
+                        isThreeLine: true,
+                      ),
+                    ),
+                  ),
+                ),
+                Container(
+                  height: 110,
+                  width: 300,
+                  child: Card(
+                    elevation: 8,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Center(
+                      child: ListTile(
+                        leading: ClipRRect(
+                          borderRadius: BorderRadius.circular(15.0),
+                          child: Container(
+                            width: 100,
+                            height: 200,
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                  image: NetworkImage(
+                                      'https://realfood.tesco.com/media/images/RFO-1400x919-classic-chocolate-mousse-69ef9c9c-5bfb-4750-80e1-31aafbd80821-0-1400x919.jpg'),
+                                  fit: BoxFit.fill),
+                            ),
+                          ),
+                        ),
+                        title: Text(
+                          "Chocolate Mousse",
+                          style: TextStyle(fontSize: 17),
+                        ),
+                        subtitle: Wrap(
+                          children: <Widget>[
+                            Padding(
+                              padding: const EdgeInsets.only(top: 5.0),
+                              child: Row(
+                                children: <Widget>[
+                                  IconTheme(
+                                    data: IconThemeData(
+                                      color: Colors.amber,
+                                      size: 22,
+                                    ),
+                                    child: StarDisplay(value: 4),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 10.0),
+                              child: Row(
+                                children: <Widget>[
+                                  Text(
+                                    '₹ 2500',
+                                    style: TextStyle(fontSize: 16),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                        trailing: Switch(
+                          value: isSwitched1,
+                          onChanged: (value) {
+                            setState(() {
+                              isSwitched1 = value;
+                            });
+                          },
+                          activeColor: Color(0xff811a41),
+                        ),
+                        isThreeLine: true,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Padding(
+            // Beverages
+            padding: const EdgeInsets.only(top: 10.0),
+            child: ListView(
+              children: <Widget>[
+                Container(
+                  height: 110,
+                  width: 300,
+                  child: Card(
+                    elevation: 8,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Center(
+                      child: ListTile(
+                        leading: ClipRRect(
+                          borderRadius: BorderRadius.circular(15.0),
+                          child: Container(
+                            width: 100,
+                            height: 200,
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                  image: NetworkImage(
+                                      'https://images.unsplash.com/photo-1551024601-bec78aea704b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80'),
+                                  fit: BoxFit.fill),
+                            ),
+                          ),
+                        ),
+                        title: Text(
+                          "Donuts",
+                          style: TextStyle(fontSize: 17),
+                        ),
+                        subtitle: Wrap(
+                          children: <Widget>[
+                            Padding(
+                              padding: const EdgeInsets.only(top: 5.0),
+                              child: Row(
+                                children: <Widget>[
+                                  IconTheme(
+                                    data: IconThemeData(
+                                      color: Colors.amber,
+                                      size: 22,
+                                    ),
+                                    child: StarDisplay(value: 4),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 10.0),
+                              child: Row(
+                                children: <Widget>[
+                                  Text(
+                                    '₹ 2000',
+                                    style: TextStyle(fontSize: 16),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                        trailing: Switch(
+                          value: isSwitched2,
+                          onChanged: (value) {
+                            setState(() {
+                              isSwitched2 = value;
+                            });
+                          },
+                          activeColor: Color(0xff811a41),
+                        ),
+                        isThreeLine: true,
+                      ),
+                    ),
+                  ),
+                ),
+                Container(
+                  height: 110,
+                  width: 300,
+                  child: Card(
+                    elevation: 8,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Center(
+                      child: ListTile(
+                        leading: ClipRRect(
+                          borderRadius: BorderRadius.circular(15.0),
+                          child: Container(
+                            width: 100,
+                            height: 200,
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                  image: NetworkImage(
+                                      'https://realfood.tesco.com/media/images/RFO-1400x919-classic-chocolate-mousse-69ef9c9c-5bfb-4750-80e1-31aafbd80821-0-1400x919.jpg'),
+                                  fit: BoxFit.fill),
+                            ),
+                          ),
+                        ),
+                        title: Text(
+                          "Chocolate Mousse",
+                          style: TextStyle(fontSize: 17),
+                        ),
+                        subtitle: Wrap(
+                          children: <Widget>[
+                            Padding(
+                              padding: const EdgeInsets.only(top: 5.0),
+                              child: Row(
+                                children: <Widget>[
+                                  IconTheme(
+                                    data: IconThemeData(
+                                      color: Colors.amber,
+                                      size: 22,
+                                    ),
+                                    child: StarDisplay(value: 4),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 10.0),
+                              child: Row(
+                                children: <Widget>[
+                                  Text(
+                                    '₹ 2500',
+                                    style: TextStyle(fontSize: 16),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                        trailing: Switch(
+                          value: isSwitched1,
+                          onChanged: (value) {
+                            setState(() {
+                              isSwitched1 = value;
                             });
                           },
                           activeColor: Color(0xff811a41),
