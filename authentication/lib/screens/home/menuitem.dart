@@ -81,13 +81,7 @@ class _MenuItemsState extends State<MenuItems> {
                               padding: const EdgeInsets.only(top: 5.0),
                               child: Row(
                                 children: <Widget>[
-                                  IconTheme(
-                                    data: IconThemeData(
-                                      color: Colors.amber,
-                                      size: 22,
-                                    ),
-                                    child: StarDisplay(value: 4),
-                                  ),
+
                                 ],
                               ),
                             ),
@@ -151,13 +145,7 @@ class _MenuItemsState extends State<MenuItems> {
                               padding: const EdgeInsets.only(top: 5.0),
                               child: Row(
                                 children: <Widget>[
-                                  IconTheme(
-                                    data: IconThemeData(
-                                      color: Colors.amber,
-                                      size: 22,
-                                    ),
-                                    child: StarDisplay(value: 4),
-                                  ),
+
                                 ],
                               ),
                             ),
@@ -229,13 +217,7 @@ class _MenuItemsState extends State<MenuItems> {
                               padding: const EdgeInsets.only(top: 5.0),
                               child: Row(
                                 children: <Widget>[
-                                  IconTheme(
-                                    data: IconThemeData(
-                                      color: Colors.amber,
-                                      size: 22,
-                                    ),
-                                    child: StarDisplay(value: 4),
-                                  ),
+
                                 ],
                               ),
                             ),
@@ -299,13 +281,7 @@ class _MenuItemsState extends State<MenuItems> {
                               padding: const EdgeInsets.only(top: 5.0),
                               child: Row(
                                 children: <Widget>[
-                                  IconTheme(
-                                    data: IconThemeData(
-                                      color: Colors.amber,
-                                      size: 22,
-                                    ),
-                                    child: StarDisplay(value: 4),
-                                  ),
+
                                 ],
                               ),
                             ),
@@ -377,13 +353,7 @@ class _MenuItemsState extends State<MenuItems> {
                               padding: const EdgeInsets.only(top: 5.0),
                               child: Row(
                                 children: <Widget>[
-                                  IconTheme(
-                                    data: IconThemeData(
-                                      color: Colors.amber,
-                                      size: 22,
-                                    ),
-                                    child: StarDisplay(value: 4),
-                                  ),
+
                                 ],
                               ),
                             ),
@@ -447,13 +417,7 @@ class _MenuItemsState extends State<MenuItems> {
                               padding: const EdgeInsets.only(top: 5.0),
                               child: Row(
                                 children: <Widget>[
-                                  IconTheme(
-                                    data: IconThemeData(
-                                      color: Colors.amber,
-                                      size: 22,
-                                    ),
-                                    child: StarDisplay(value: 4),
-                                  ),
+
                                 ],
                               ),
                             ),
@@ -525,13 +489,7 @@ class _MenuItemsState extends State<MenuItems> {
                               padding: const EdgeInsets.only(top: 5.0),
                               child: Row(
                                 children: <Widget>[
-                                  IconTheme(
-                                    data: IconThemeData(
-                                      color: Colors.amber,
-                                      size: 22,
-                                    ),
-                                    child: StarDisplay(value: 4),
-                                  ),
+
                                 ],
                               ),
                             ),
@@ -595,13 +553,7 @@ class _MenuItemsState extends State<MenuItems> {
                               padding: const EdgeInsets.only(top: 5.0),
                               child: Row(
                                 children: <Widget>[
-                                  IconTheme(
-                                    data: IconThemeData(
-                                      color: Colors.amber,
-                                      size: 22,
-                                    ),
-                                    child: StarDisplay(value: 4),
-                                  ),
+
                                 ],
                               ),
                             ),
@@ -673,13 +625,7 @@ class _MenuItemsState extends State<MenuItems> {
                               padding: const EdgeInsets.only(top: 5.0),
                               child: Row(
                                 children: <Widget>[
-                                  IconTheme(
-                                    data: IconThemeData(
-                                      color: Colors.amber,
-                                      size: 22,
-                                    ),
-                                    child: StarDisplay(value: 4),
-                                  ),
+
                                 ],
                               ),
                             ),
@@ -743,13 +689,7 @@ class _MenuItemsState extends State<MenuItems> {
                               padding: const EdgeInsets.only(top: 5.0),
                               child: Row(
                                 children: <Widget>[
-                                  IconTheme(
-                                    data: IconThemeData(
-                                      color: Colors.amber,
-                                      size: 22,
-                                    ),
-                                    child: StarDisplay(value: 4),
-                                  ),
+
                                 ],
                               ),
                             ),
@@ -821,13 +761,7 @@ class _MenuItemsState extends State<MenuItems> {
                               padding: const EdgeInsets.only(top: 5.0),
                               child: Row(
                                 children: <Widget>[
-                                  IconTheme(
-                                    data: IconThemeData(
-                                      color: Colors.amber,
-                                      size: 22,
-                                    ),
-                                    child: StarDisplay(value: 4),
-                                  ),
+
                                 ],
                               ),
                             ),
@@ -891,13 +825,7 @@ class _MenuItemsState extends State<MenuItems> {
                               padding: const EdgeInsets.only(top: 5.0),
                               child: Row(
                                 children: <Widget>[
-                                  IconTheme(
-                                    data: IconThemeData(
-                                      color: Colors.amber,
-                                      size: 22,
-                                    ),
-                                    child: StarDisplay(value: 4),
-                                  ),
+
                                 ],
                               ),
                             ),
@@ -969,13 +897,7 @@ class _MenuItemsState extends State<MenuItems> {
                               padding: const EdgeInsets.only(top: 5.0),
                               child: Row(
                                 children: <Widget>[
-                                  IconTheme(
-                                    data: IconThemeData(
-                                      color: Colors.amber,
-                                      size: 22,
-                                    ),
-                                    child: StarDisplay(value: 4),
-                                  ),
+
                                 ],
                               ),
                             ),
@@ -1039,13 +961,7 @@ class _MenuItemsState extends State<MenuItems> {
                               padding: const EdgeInsets.only(top: 5.0),
                               child: Row(
                                 children: <Widget>[
-                                  IconTheme(
-                                    data: IconThemeData(
-                                      color: Colors.amber,
-                                      size: 22,
-                                    ),
-                                    child: StarDisplay(value: 4),
-                                  ),
+
                                 ],
                               ),
                             ),
@@ -1117,13 +1033,7 @@ class _MenuItemsState extends State<MenuItems> {
                               padding: const EdgeInsets.only(top: 5.0),
                               child: Row(
                                 children: <Widget>[
-                                  IconTheme(
-                                    data: IconThemeData(
-                                      color: Colors.amber,
-                                      size: 22,
-                                    ),
-                                    child: StarDisplay(value: 4),
-                                  ),
+
                                 ],
                               ),
                             ),
@@ -1187,13 +1097,7 @@ class _MenuItemsState extends State<MenuItems> {
                               padding: const EdgeInsets.only(top: 5.0),
                               child: Row(
                                 children: <Widget>[
-                                  IconTheme(
-                                    data: IconThemeData(
-                                      color: Colors.amber,
-                                      size: 22,
-                                    ),
-                                    child: StarDisplay(value: 4),
-                                  ),
+
                                 ],
                               ),
                             ),
@@ -1233,19 +1137,4 @@ class _MenuItemsState extends State<MenuItems> {
   }
 }
 
-class StarDisplay extends StatelessWidget {
-  final int value;
-  const StarDisplay({Key key, this.value = 0})
-      : assert(value != null),
-        super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: List.generate(5, (index) {
-        return Icon(
-          index < value ? Icons.star : Icons.star_border,
-        );
-      }),
-    );
-  }
-}
+
