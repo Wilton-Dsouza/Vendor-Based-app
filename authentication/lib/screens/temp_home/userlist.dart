@@ -11,18 +11,19 @@ class _UserListState extends State<UserList> {
   @override
   Widget build(BuildContext context) {
 //    final usersInfo = Provider.of<QuerySnapshot>(context);
-    final usersInfo = Provider.of<List<MyDishInfo>>(context) ?? [];
-    for (var user in usersInfo) {
-      print(user.dishName);
-      print(user.category);
-      print(user.originalPrice);
-      print(user.specialDish);
-    }
 //    print(usersInfo);
 //    print(usersInfo.documents);
 //    for (var doc in usersInfo.documents) {
 //      print(doc.data);
 //    }
+    final dishInfo = Provider.of<List<MyDishInfo>>(context) ?? [];
+    for (var dish in dishInfo) {
+      print(dish.dishName);
+      print(dish.category);
+      print(dish.originalPrice);
+      print(dish.discountedPrice);
+      print(dish.specialDish);
+    }
     return Container();
   }
 }

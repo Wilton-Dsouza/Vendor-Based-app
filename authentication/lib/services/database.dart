@@ -48,14 +48,12 @@ class DatabaseService {
       bool specialDish}) async {
     CollectionReference restaurantInfoCollection =
         userInfoCollection.document(uid).collection('dishes');
-    print('3');
     return await restaurantInfoCollection.document(dishName).setData({
       'original_price': originalPrice,
       'discounted_price': discountedPrice,
       'category': category,
       'special_dish': specialDish,
     });
-    print('4');
   }
 
   // UserInfo from Snapshot
@@ -63,7 +61,7 @@ class DatabaseService {
     return snapshot.documents.map((doc) {
       //map is used to iterate through(go through) the list of documents
       return MyDishInfo(
-        dishName: doc.toString(),
+        dishName: doc.documentID,
         originalPrice: doc.data['original_price'] ??
             0, // will give 0 if 'original_price' key doesnt exist in database
         discountedPrice: doc.data['discounted_price'] ?? 0,
@@ -96,6 +94,10 @@ class DatabaseService {
         .snapshots()
         .map(_dishListFromSnapshot);
   }
+
+//  Stream<QuerySnapshot> get dishInfo {
+//    return userInfoCollection.document(uid).collection('dishes').snapshots();
+//  }
 
   //get user doc stream
 //  Stream<DocumentSnapshot> get userData {
