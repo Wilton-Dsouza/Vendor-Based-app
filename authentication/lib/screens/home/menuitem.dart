@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:login_app/screens/temp_home/dishlist.dart';
 
 class MenuItems extends StatefulWidget {
   _MenuItemsState createState() => _MenuItemsState();
@@ -8,7 +9,16 @@ class _MenuItemsState extends State<MenuItems> {
   int selectedpositon = 0;
   bool isSwitched1 = false;
   bool isSwitched2 = true;
-  final tabs = ['Breakfast', 'Vegan', 'Pizza', 'Juice', 'Ice Cream','Healthy','Chinese','Deserts'];
+  final tabs = [
+    'Breakfast',
+    'Vegan',
+    'Pizza',
+    'Juice',
+    'Ice Cream',
+    'Healthy',
+    'Chinese',
+    'Deserts'
+  ];
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -46,138 +56,7 @@ class _MenuItemsState extends State<MenuItems> {
           Padding(
             // Desert
             padding: const EdgeInsets.only(top: 10.0),
-            child: ListView(
-              children: <Widget>[
-                Container(
-                  height: 110,
-                  width: 300,
-                  child: Card(
-                    elevation: 8,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Center(
-                      child: ListTile(
-                        leading: ClipRRect(
-                          borderRadius: BorderRadius.circular(15.0),
-                          child: Container(
-                            width: 100,
-                            height: 300,
-                            decoration: BoxDecoration(
-                              image: DecorationImage(
-                                  image: NetworkImage(
-                                      'https://static01.nyt.com/images/2016/11/29/dining/recipelab-chick-noodle-still/recipelab-chick-noodle-still-mediumThreeByTwo440.jpg'),
-                                  fit: BoxFit.fill),
-                            ),
-                          ),
-                        ),
-                        title: Text(
-                          "Veg Soup",
-                          style: TextStyle(fontSize: 17),
-                        ),
-                        subtitle: Wrap(
-                          children: <Widget>[
-                            Padding(
-                              padding: const EdgeInsets.only(top: 5.0),
-                              child: Row(
-                                children: <Widget>[
-
-                                ],
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(top: 10.0),
-                              child: Row(
-                                children: <Widget>[
-                                  Text(
-                                    '₹ 2000',
-                                    style: TextStyle(fontSize: 16),
-                                  )
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                        trailing: Switch(
-                          value: isSwitched2,
-                          onChanged: (value) {
-                            setState(() {
-                              isSwitched2 = value;
-                            });
-                          },
-                          activeColor: Color(0xff811a41),
-                        ),
-                        isThreeLine: true,
-                      ),
-                    ),
-                  ),
-                ),
-                Container(
-                  height: 110,
-                  width: 300,
-                  child: Card(
-                    elevation: 8,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Center(
-                      child: ListTile(
-                        leading: ClipRRect(
-                          borderRadius: BorderRadius.circular(15.0),
-                          child: Container(
-                            width: 100,
-                            height: 200,
-                            decoration: BoxDecoration(
-                              image: DecorationImage(
-                                  image: NetworkImage(
-                                      'https://www.inspiredtaste.net/wp-content/uploads/2018/10/Homemade-Vegetable-Soup-Recipe-2-1200.jpg'),
-                                  fit: BoxFit.fill),
-                            ),
-                          ),
-                        ),
-                        title: Text(
-                          "Chicken Soup",
-                          style: TextStyle(fontSize: 17),
-                        ),
-                        subtitle: Wrap(
-                          children: <Widget>[
-                            Padding(
-                              padding: const EdgeInsets.only(top: 5.0),
-                              child: Row(
-                                children: <Widget>[
-
-                                ],
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(top: 10.0),
-                              child: Row(
-                                children: <Widget>[
-                                  Text(
-                                    '₹ 2500',
-                                    style: TextStyle(fontSize: 16),
-                                  )
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                        trailing: Switch(
-                          value: isSwitched1,
-                          onChanged: (value) {
-                            setState(() {
-                              isSwitched1 = value;
-                            });
-                          },
-                          activeColor: Color(0xff811a41),
-                        ),
-                        isThreeLine: true,
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
+            child: DishList(),
           ),
           Padding(
             //Starters
@@ -216,9 +95,7 @@ class _MenuItemsState extends State<MenuItems> {
                             Padding(
                               padding: const EdgeInsets.only(top: 5.0),
                               child: Row(
-                                children: <Widget>[
-
-                                ],
+                                children: <Widget>[],
                               ),
                             ),
                             Padding(
@@ -280,9 +157,7 @@ class _MenuItemsState extends State<MenuItems> {
                             Padding(
                               padding: const EdgeInsets.only(top: 5.0),
                               child: Row(
-                                children: <Widget>[
-
-                                ],
+                                children: <Widget>[],
                               ),
                             ),
                             Padding(
@@ -352,9 +227,7 @@ class _MenuItemsState extends State<MenuItems> {
                             Padding(
                               padding: const EdgeInsets.only(top: 5.0),
                               child: Row(
-                                children: <Widget>[
-
-                                ],
+                                children: <Widget>[],
                               ),
                             ),
                             Padding(
@@ -416,9 +289,7 @@ class _MenuItemsState extends State<MenuItems> {
                             Padding(
                               padding: const EdgeInsets.only(top: 5.0),
                               child: Row(
-                                children: <Widget>[
-
-                                ],
+                                children: <Widget>[],
                               ),
                             ),
                             Padding(
@@ -488,9 +359,7 @@ class _MenuItemsState extends State<MenuItems> {
                             Padding(
                               padding: const EdgeInsets.only(top: 5.0),
                               child: Row(
-                                children: <Widget>[
-
-                                ],
+                                children: <Widget>[],
                               ),
                             ),
                             Padding(
@@ -552,9 +421,7 @@ class _MenuItemsState extends State<MenuItems> {
                             Padding(
                               padding: const EdgeInsets.only(top: 5.0),
                               child: Row(
-                                children: <Widget>[
-
-                                ],
+                                children: <Widget>[],
                               ),
                             ),
                             Padding(
@@ -624,9 +491,7 @@ class _MenuItemsState extends State<MenuItems> {
                             Padding(
                               padding: const EdgeInsets.only(top: 5.0),
                               child: Row(
-                                children: <Widget>[
-
-                                ],
+                                children: <Widget>[],
                               ),
                             ),
                             Padding(
@@ -688,145 +553,7 @@ class _MenuItemsState extends State<MenuItems> {
                             Padding(
                               padding: const EdgeInsets.only(top: 5.0),
                               child: Row(
-                                children: <Widget>[
-
-                                ],
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(top: 10.0),
-                              child: Row(
-                                children: <Widget>[
-                                  Text(
-                                    '₹ 2500',
-                                    style: TextStyle(fontSize: 16),
-                                  )
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                        trailing: Switch(
-                          value: isSwitched1,
-                          onChanged: (value) {
-                            setState(() {
-                              isSwitched1 = value;
-                            });
-                          },
-                          activeColor: Color(0xff811a41),
-                        ),
-                        isThreeLine: true,
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Padding(
-            // Beverages
-            padding: const EdgeInsets.only(top: 10.0),
-            child: ListView(
-              children: <Widget>[
-                Container(
-                  height: 110,
-                  width: 300,
-                  child: Card(
-                    elevation: 8,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Center(
-                      child: ListTile(
-                        leading: ClipRRect(
-                          borderRadius: BorderRadius.circular(15.0),
-                          child: Container(
-                            width: 100,
-                            height: 200,
-                            decoration: BoxDecoration(
-                              image: DecorationImage(
-                                  image: NetworkImage(
-                                      'https://images.unsplash.com/photo-1551024601-bec78aea704b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80'),
-                                  fit: BoxFit.fill),
-                            ),
-                          ),
-                        ),
-                        title: Text(
-                          "Donuts",
-                          style: TextStyle(fontSize: 17),
-                        ),
-                        subtitle: Wrap(
-                          children: <Widget>[
-                            Padding(
-                              padding: const EdgeInsets.only(top: 5.0),
-                              child: Row(
-                                children: <Widget>[
-
-                                ],
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.only(top: 10.0),
-                              child: Row(
-                                children: <Widget>[
-                                  Text(
-                                    '₹ 2000',
-                                    style: TextStyle(fontSize: 16),
-                                  )
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                        trailing: Switch(
-                          value: isSwitched2,
-                          onChanged: (value) {
-                            setState(() {
-                              isSwitched2 = value;
-                            });
-                          },
-                          activeColor: Color(0xff811a41),
-                        ),
-                        isThreeLine: true,
-                      ),
-                    ),
-                  ),
-                ),
-                Container(
-                  height: 110,
-                  width: 300,
-                  child: Card(
-                    elevation: 8,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Center(
-                      child: ListTile(
-                        leading: ClipRRect(
-                          borderRadius: BorderRadius.circular(15.0),
-                          child: Container(
-                            width: 100,
-                            height: 200,
-                            decoration: BoxDecoration(
-                              image: DecorationImage(
-                                  image: NetworkImage(
-                                      'https://realfood.tesco.com/media/images/RFO-1400x919-classic-chocolate-mousse-69ef9c9c-5bfb-4750-80e1-31aafbd80821-0-1400x919.jpg'),
-                                  fit: BoxFit.fill),
-                            ),
-                          ),
-                        ),
-                        title: Text(
-                          "Chocolate Mousse",
-                          style: TextStyle(fontSize: 17),
-                        ),
-                        subtitle: Wrap(
-                          children: <Widget>[
-                            Padding(
-                              padding: const EdgeInsets.only(top: 5.0),
-                              child: Row(
-                                children: <Widget>[
-
-                                ],
+                                children: <Widget>[],
                               ),
                             ),
                             Padding(
@@ -896,9 +623,7 @@ class _MenuItemsState extends State<MenuItems> {
                             Padding(
                               padding: const EdgeInsets.only(top: 5.0),
                               child: Row(
-                                children: <Widget>[
-
-                                ],
+                                children: <Widget>[],
                               ),
                             ),
                             Padding(
@@ -960,9 +685,7 @@ class _MenuItemsState extends State<MenuItems> {
                             Padding(
                               padding: const EdgeInsets.only(top: 5.0),
                               child: Row(
-                                children: <Widget>[
-
-                                ],
+                                children: <Widget>[],
                               ),
                             ),
                             Padding(
@@ -1032,9 +755,7 @@ class _MenuItemsState extends State<MenuItems> {
                             Padding(
                               padding: const EdgeInsets.only(top: 5.0),
                               child: Row(
-                                children: <Widget>[
-
-                                ],
+                                children: <Widget>[],
                               ),
                             ),
                             Padding(
@@ -1096,9 +817,139 @@ class _MenuItemsState extends State<MenuItems> {
                             Padding(
                               padding: const EdgeInsets.only(top: 5.0),
                               child: Row(
+                                children: <Widget>[],
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 10.0),
+                              child: Row(
                                 children: <Widget>[
-
+                                  Text(
+                                    '₹ 2500',
+                                    style: TextStyle(fontSize: 16),
+                                  )
                                 ],
+                              ),
+                            ),
+                          ],
+                        ),
+                        trailing: Switch(
+                          value: isSwitched1,
+                          onChanged: (value) {
+                            setState(() {
+                              isSwitched1 = value;
+                            });
+                          },
+                          activeColor: Color(0xff811a41),
+                        ),
+                        isThreeLine: true,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Padding(
+            // Beverages
+            padding: const EdgeInsets.only(top: 10.0),
+            child: ListView(
+              children: <Widget>[
+                Container(
+                  height: 110,
+                  width: 300,
+                  child: Card(
+                    elevation: 8,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Center(
+                      child: ListTile(
+                        leading: ClipRRect(
+                          borderRadius: BorderRadius.circular(15.0),
+                          child: Container(
+                            width: 100,
+                            height: 200,
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                  image: NetworkImage(
+                                      'https://images.unsplash.com/photo-1551024601-bec78aea704b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80'),
+                                  fit: BoxFit.fill),
+                            ),
+                          ),
+                        ),
+                        title: Text(
+                          "Donuts",
+                          style: TextStyle(fontSize: 17),
+                        ),
+                        subtitle: Wrap(
+                          children: <Widget>[
+                            Padding(
+                              padding: const EdgeInsets.only(top: 5.0),
+                              child: Row(
+                                children: <Widget>[],
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 10.0),
+                              child: Row(
+                                children: <Widget>[
+                                  Text(
+                                    '₹ 2000',
+                                    style: TextStyle(fontSize: 16),
+                                  )
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                        trailing: Switch(
+                          value: isSwitched2,
+                          onChanged: (value) {
+                            setState(() {
+                              isSwitched2 = value;
+                            });
+                          },
+                          activeColor: Color(0xff811a41),
+                        ),
+                        isThreeLine: true,
+                      ),
+                    ),
+                  ),
+                ),
+                Container(
+                  height: 110,
+                  width: 300,
+                  child: Card(
+                    elevation: 8,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Center(
+                      child: ListTile(
+                        leading: ClipRRect(
+                          borderRadius: BorderRadius.circular(15.0),
+                          child: Container(
+                            width: 100,
+                            height: 200,
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                  image: NetworkImage(
+                                      'https://realfood.tesco.com/media/images/RFO-1400x919-classic-chocolate-mousse-69ef9c9c-5bfb-4750-80e1-31aafbd80821-0-1400x919.jpg'),
+                                  fit: BoxFit.fill),
+                            ),
+                          ),
+                        ),
+                        title: Text(
+                          "Chocolate Mousse",
+                          style: TextStyle(fontSize: 17),
+                        ),
+                        subtitle: Wrap(
+                          children: <Widget>[
+                            Padding(
+                              padding: const EdgeInsets.only(top: 5.0),
+                              child: Row(
+                                children: <Widget>[],
                               ),
                             ),
                             Padding(
@@ -1136,5 +987,3 @@ class _MenuItemsState extends State<MenuItems> {
     );
   }
 }
-
-

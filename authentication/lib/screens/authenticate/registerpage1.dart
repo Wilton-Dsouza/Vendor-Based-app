@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:login_app/screens/authenticate/registerpage2.dart';
-import 'package:login_app/services/auth.dart';
 
 class RegisterPage1 extends StatefulWidget {
   final Function toggleView;
@@ -51,7 +50,8 @@ class _RegisterPage1State extends State<RegisterPage1> {
                                     child: Text(
                                   'Registration',
                                   style: TextStyle(
-                                      fontSize: 25, fontWeight: FontWeight.bold),
+                                      fontSize: 25,
+                                      fontWeight: FontWeight.bold),
                                 )),
                               ),
                             ],
@@ -59,7 +59,8 @@ class _RegisterPage1State extends State<RegisterPage1> {
                         ],
                       ),
                       Padding(
-                        padding: const EdgeInsets.fromLTRB(20.0, 8.0, 20.0, 0.0),
+                        padding:
+                            const EdgeInsets.fromLTRB(20.0, 8.0, 20.0, 0.0),
                         child: TextFormField(
                           validator: (input) => input.isEmpty
                               ? 'Please enter a restaurant name'
@@ -79,7 +80,8 @@ class _RegisterPage1State extends State<RegisterPage1> {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 0.0),
+                        padding:
+                            const EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 0.0),
                         child: TextFormField(
                           validator: (input) =>
                               input.isEmpty ? 'Please enter a location' : null,
@@ -102,15 +104,16 @@ class _RegisterPage1State extends State<RegisterPage1> {
                         ),
                         child: Container(
                           child: Padding(
-                            padding:
-                                const EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 0.0),
+                            padding: const EdgeInsets.fromLTRB(
+                                20.0, 20.0, 20.0, 0.0),
                             child: DropdownButtonFormField(
                                 iconEnabledColor: new Color(0xFF811a41),
                                 isExpanded: true,
                                 hint: Text(
                                   'Establishment Type',
                                   style: TextStyle(
-                                      fontSize: 20, color: new Color(0xFF811a41)),
+                                      fontSize: 20,
+                                      color: new Color(0xFF811a41)),
                                 ),
                                 value: _value,
                                 items: [
@@ -144,7 +147,8 @@ class _RegisterPage1State extends State<RegisterPage1> {
                                 onChanged: (value) {
                                   switch (value) {
                                     case 1:
-                                      details['establishment_type'] = 'Restaurant';
+                                      details['establishment_type'] =
+                                          'Restaurant';
                                       break;
                                     case 2:
                                       details['establishment_type'] =
@@ -154,7 +158,8 @@ class _RegisterPage1State extends State<RegisterPage1> {
                                       details['establishment_type'] = 'Vendor';
                                       break;
                                     case 4:
-                                      details['establishment_type'] = 'Home Baker';
+                                      details['establishment_type'] =
+                                          'Home Baker';
                                       break;
                                     default:
                                       details['establishment_type'] =
@@ -168,7 +173,8 @@ class _RegisterPage1State extends State<RegisterPage1> {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 0.0),
+                        padding:
+                            const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 0.0),
                         child: TextFormField(
                           validator: (input) => input.isEmpty
                               ? 'Please enter a valid phone number'
@@ -187,10 +193,12 @@ class _RegisterPage1State extends State<RegisterPage1> {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 0.0),
+                        padding:
+                            const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 0.0),
                         child: TextFormField(
-                          validator: (input) =>
-                              input.isEmpty ? 'Please enter a valid email' : null,
+                          validator: (input) => input.isEmpty
+                              ? 'Please enter a valid email'
+                              : null,
                           onChanged: (input) {
                             setState(() => details['email'] = input.trim());
                           },
@@ -205,7 +213,8 @@ class _RegisterPage1State extends State<RegisterPage1> {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 0.0),
+                        padding:
+                            const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 0.0),
                         child: TextFormField(
                           validator: (input) => input.length < 6
                               ? 'Password needs to be atleast 6 characters'
@@ -227,11 +236,13 @@ class _RegisterPage1State extends State<RegisterPage1> {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 0.0),
+                        padding:
+                            const EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 0.0),
                         child: TextFormField(
-                          validator: (input) => input.trim() != details['password']
-                              ? 'Passwords do not match'
-                              : null,
+                          validator: (input) =>
+                              input.trim() != details['password']
+                                  ? 'Passwords do not match'
+                                  : null,
 //                      onChanged: (input) {
 //                        setState(() => details['confirm_password'] = input);
 //                      },
@@ -247,7 +258,8 @@ class _RegisterPage1State extends State<RegisterPage1> {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 10.0),
+                        padding:
+                            const EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 10.0),
                         child: Container(
                           width: 150,
                           height: 50,
@@ -271,8 +283,8 @@ class _RegisterPage1State extends State<RegisterPage1> {
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(30)),
                             child: Text('Next',
-                                style:
-                                    TextStyle(fontSize: 20, color: Colors.white)),
+                                style: TextStyle(
+                                    fontSize: 20, color: Colors.white)),
                           ),
                         ),
                       ),

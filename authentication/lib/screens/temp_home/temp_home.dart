@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:login_app/models/dish_info.dart';
 import 'package:login_app/models/user.dart';
-import 'package:login_app/screens/temp_home/userlist.dart';
+import 'package:login_app/screens/temp_home/dishlist.dart';
 import 'package:login_app/services/auth.dart';
 import 'package:login_app/services/database.dart';
 import 'package:provider/provider.dart';
@@ -34,7 +34,7 @@ class TempHomePage extends StatelessWidget {
             )
           ],
         ),
-        body: UserList(),
+        body: DishList(),
       ),
     );
   }

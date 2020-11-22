@@ -34,4 +34,15 @@ class Storage {
         await uploadTask.onComplete; //to check whether the upload is complete
     print('Uploaded');
   }
+
+  Future<String> downloadDishPicture({String uid, String imageFileName}) async {
+    StorageReference firebaseStorageReference = FirebaseStorage.instance
+        .ref()
+        .child(uid)
+        .child('dishes'); //location of the image to be downloaded
+    String downloadAddress =
+        await firebaseStorageReference.child(imageFileName).getDownloadURL();
+//    print(downloadAddress);
+    return downloadAddress;
+  }
 }

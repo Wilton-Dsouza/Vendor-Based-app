@@ -4,8 +4,6 @@ import 'package:login_app/screens/wrapper.dart';
 import 'package:login_app/services/auth.dart';
 import 'package:provider/provider.dart';
 
-import 'screens/authenticate/signin.dart';
-
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
